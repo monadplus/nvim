@@ -1,62 +1,63 @@
-# Neovim + lua
+# monadplus/nvim
 
-![screenshot](./doc/screenshot_18_oct_2022.png)
+![screenshot dashboard](./screenshots/dashboard.png)
+![screenshot lazygit](./screenshots/lazygit.png)
+![screenshot rust](./screenshots/rust.png)
 
 ## Installation
 
-### Tmux
+First, [install](https://github.com/neovim/neovim/wiki/Installing-Neovim) neovim (at least version 7.0).
+
+Secondly, install this configuration:
 
 ```bash
-sudo pacman -S tmux
-ln -s ~/dotfiles/.tmux.conf ~
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-tmux source ~/.tmux.conf
+git clone git@github.com:monadplus/nvim.git "$HOME/.config/nvim" # or "$XDG_CONFIG_HOME/nvim"
 ```
 
-Inside tmux press: `<C-b> I`
-
-### Neovim
-
-```bash
-sudo pacman -S neovim
-ln -s ~/dotfiles/nvim ~/.config
-```
-
-Install Packer (it has been boostrapped) and plugins:
+Finally, install all plugins using [Packer](https://github.com/wbthomason/packer.nvim):
 
 ```bash
 # Errors may appear, ignore them
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
 
-Once everything is installed, don't forget to update treesitter plugins: `:TSUpdate`
+Once everything is installed, check all plugins are correctly installed:
 
-Required binaries:
-
-- `node` and `yarn` (markdown-preview)
-
-```bash
-sudo pacman -S ueberzug # Preview
-paru -S poppler # pdftoppm (pdfs)
+```vim
+:PackerInstall
+:PackerCompile
 ```
 
-LSPs:
+And update treesitter parsers (see [treesitter.lua](/lua/monadplus/plugins/treesitter.lua)):
 
-- bash-language-server (pacman)
-- ccls (pacman) + bear (pacman)
-- hls (nixpkgs)
-- pyright (nixpkgs)
-- marksman (pacman)
-- lua-language-server (pacman)
-- rnix (nixpkgs)
-- rust-analyzer (nixpkgs or rustup)
-- yaml-language-server (pacman)
-
-```bash
-sudo pacman -S lua-language-server bash-language-server yaml-language-server ccls bear
-paru -S marksman-bin # markdown server
+```vim
+:TSUpdate
 ```
 
-## Tips & Tricks
+### Dependencies
 
-- `nvim --startuptime startup.txt`
+- [fd](https://github.com/sharkdp/fd)
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [lazygit](https://github.com/jesseduffield/lazygit)
+
+### Optional dependencies
+
+- [node](https://nodejs.org/en/) and [yarn](https://yarnpkg.com/) for [markdown-preview](https://github.com/iamcco/markdown-preview.nvim) 
+
+### LSP Servers
+
+LSP servers can be installed from your distribution's package manager.
+Alternatively, you can configure the plugin [mason.nvim](https://github.com/williamboman/mason.nvim) (**which is not configured**) to automatically install them.
+
+This configuration expects the following LSP servers:
+- bash-language-server (bash)
+- ccls (pacman) + bear (c/c++)
+- hls (haskell)
+- pyright (python)
+- marksman (markdown)
+- lua-language-server (lua)
+- rnix (nix)
+- rust-analyzer (rust)
+- yaml-language-server (yaml)
+
+Feel free to add/remove servers from [lsp.lua](/lua/monadplus/plugins/lsp.lua). See [server configurations](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md) for more information of available servers.

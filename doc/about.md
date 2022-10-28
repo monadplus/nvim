@@ -123,6 +123,10 @@ vim.api.nvim_set_hl(0, "Visual", {})
 
 Quickfix and location list
 
+## Tips & Tricks
+
+- `nvim --startuptime startup.txt`
+
 ## Resources
 
 - [nvim-lua-guide](https://github.com/nanotee/nvim-lua-guide)

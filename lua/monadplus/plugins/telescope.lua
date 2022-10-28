@@ -48,8 +48,21 @@ telescope.load_extension('fzf')
 
 -- Keymaps
 local builtins = require('telescope.builtin')
+local telescope_state = require('telescope.state')
+
+local last_grep = nil
+local function live_grep_with_cache()
+  if last_grep == nil then
+    builtins.live_grep()
+    local cached_pickers = telescope_state.get_global_key "cached_pickers" or {}
+    last_grep = cached_pickers[1]
+  else
+    builtins.resume({ picker = last_grep })
+  end
+end
+
 vim.keymap.set('n', '<leader><leader>', builtins.find_files, { silent = true, noremap = true, desc = "Files" })
-vim.keymap.set('n', '<leader>/', builtins.live_grep, { silent = true, noremap = true, desc = "Grep" })
+vim.keymap.set('n', '<leader>/', live_grep_with_cache, { silent = true, noremap = true, desc = "Grep" })
 vim.keymap.set('n', '<leader>*', builtins.grep_string, { silent = true, noremap = true, desc = "Grep word" })
 vim.keymap.set('n', '<leader>,', builtins.buffers, { silent = true, noremap = true, desc = "Buffers" })
 vim.keymap.set('n', '<leader>fk', builtins.keymaps, { silent = true, noremap = true, desc = "Keymaps" })

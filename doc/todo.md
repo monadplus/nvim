@@ -6,10 +6,6 @@
 - [ ] Debugging:
   - https://github.com/mfussenegger/nvim-dap
   - https://github.com/rcarriga/nvim-dap-ui
-
-## Neovim and lua
-
-- [ ] Read https://github.com/nanotee/nvim-lua-guide
 - [ ] Learn neorg
 - [ ] https://github.com/pwntester/octo.nvim
 

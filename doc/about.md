@@ -128,6 +128,7 @@ Quickfix and location list
 - `nvim --startuptime startup.txt`
 - `require()` caches the module. Use [plenary.reload()](https://github.com/nvim-lua/plenary.nvim/blob/master/lua/plenary/reload.lua].
 - Don't pad lua strings! In some cases like `vim.api.nvim_set_keymap` can be problematic.
+- `:verbose set formatoptions` to see who made the last change
 
 ## Resources
 

@@ -206,8 +206,8 @@ Extended mode (normal mode):
   - Find Word also works on Visual/Select mode. 
     Select part of a word and <C-n>
   - `<C-a>`: increase numbers
-- `leader-A`: select all words in the file
-- `leader-/`: regex
+- `\\A`: select all words in the file
+- `\\/`: regex
 
 Cursor mode (normal mode):
 - `<C-Down>`/`<C-Up>`: Add Cursor Down/Up
@@ -225,7 +225,7 @@ Cursor mode (normal mode):
 - `Tab`: Switch cursor and extended mode
 
 Visual-mode:
-- `leader-c`: create cursors from visual selection
+- `\\c`: create cursors from visual selection
 
 > vim-visual-multi can do a lot more, but this is enough to take out 80% of it.
 

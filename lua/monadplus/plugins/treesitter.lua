@@ -9,8 +9,6 @@ require 'nvim-treesitter.configs'.setup {
     "bash",
     "c",
     "haskell",
-    "java",
-    "javascript",
     "json",
     "lua",
     "markdown",

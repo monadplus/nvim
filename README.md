@@ -6,7 +6,7 @@
 
 ## Installation
 
-First, [install](https://github.com/neovim/neovim/wiki/Installing-Neovim) neovim (at least version 7.0).
+First, [install](https://github.com/neovim/neovim/wiki/Installing-Neovim) neovim (at least version 8.0).
 
 Secondly, install this configuration:
 
@@ -31,6 +31,7 @@ Once everything is installed, check all plugins are correctly installed:
 And update treesitter parsers (see [treesitter.lua](/lua/monadplus/plugins/treesitter.lua)):
 
 ```vim
+// Stored at '/home/arnau/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser'
 :TSUpdate
 ```
 

@@ -37,6 +37,14 @@ autocmd('TextYankPost', {
   end
 })
 
+-- TODO: use lua
+vim.cmd[[
+augroup AutoAdjustResize
+  autocmd!
+  autocmd VimResized * execute "normal! \<C-w>="
+augroup end
+]]
+
 -- FIXME:
 -- If you place this options at plugin/options.lua it will be overwritten.
 -- You can check it by `:verbose set formatoptions`.

@@ -7,8 +7,8 @@ end
 -- Keybindings
 
 vim.keymap.set('n', '<leader>me', vim.diagnostic.open_float, { silent = true, noremap = true, desc = "Show diagnostic" })
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { silent = true, noremap = true, desc = "Next diagnostic" })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { silent = true, noremap = true, desc = "Previous diagnostic" })
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { silent = true, noremap = true, desc = "Previous diagnostic" })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { silent = true, noremap = true, desc = "Next diagnostic" })
 
 local function on_list(options)
   vim.fn.setqflist({}, ' ', options)

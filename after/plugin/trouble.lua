@@ -62,3 +62,4 @@ vim.keymap.set('n', '<leader>xq', "<cmd>TroubleToggle quickfix<cr>",
 vim.keymap.set('n', '<leader>xl', "<cmd>TroubleToggle loclist<cr>",
   { silent = true, noremap = true, desc = "Loclist" })
 vim.keymap.set('n', '<leader>xt', "<cmd>TodoTrouble<cr>", { silent = true, noremap = true, desc = "TODOs" })
+vim.keymap.set('n', '<leader>xc', "<cmd>TroubleClose<cr>", { silent = true, noremap = true, desc = "Close" })

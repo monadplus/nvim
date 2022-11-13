@@ -2,7 +2,6 @@
 
 ## Neovim setup
 
-- [ ] Check https://github.com/michaelb/sniprun
 - [ ] Debugging:
   - https://github.com/mfussenegger/nvim-dap
   - https://github.com/rcarriga/nvim-dap-ui

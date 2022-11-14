@@ -134,12 +134,6 @@ lsp_custom_settings.intelephense = {}
 
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- nvim-ufo
-lsp_capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true
-}
-
 local lspconfig = require('lspconfig')
 for lsp, settings in pairs(lsp_custom_settings) do
   lspconfig[lsp].setup {

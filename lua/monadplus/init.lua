@@ -38,7 +38,7 @@ autocmd('TextYankPost', {
 })
 
 -- TODO: use lua
-vim.cmd[[
+vim.cmd [[
 augroup AutoAdjustResize
   autocmd!
   autocmd VimResized * execute "normal! \<C-w>="
@@ -53,7 +53,8 @@ autocmd('BufEnter', {
   group = augroup('format_options', { clear = true }),
   pattern = "*",
   callback = function()
-    vim.opt.formatoptions = vim.opt.formatoptions
+    local opt = vim.opt
+    opt.formatoptions = opt.formatoptions
         - "a" -- Auto formatting is BAD.
         - "t" -- Don't auto format my code. I got linters for that.
         + "c" -- In general, I like it when comments respect textwidth
@@ -63,5 +64,11 @@ autocmd('BufEnter', {
         + "n" -- Indent past the formatlistpat, not underneath it.
         + "j" -- Auto-remove comments if possible.
         - "2" -- I'm not in gradeschool anymore
+
+    -- https://github.com/kevinhwang91/nvim-ufo/issues/4#issuecomment-1160512800
+    opt.foldcolumn = '0'
+    opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+    opt.foldlevelstart = 99
+    opt.foldenable = true
   end
 })

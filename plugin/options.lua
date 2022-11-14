@@ -45,7 +45,7 @@ vim.o.fillchars = [[eob:~,fold: ,foldopen:,foldsep: ,foldclose:]]
 -- https://github.com/kevinhwang91/nvim-ufo/issues/4#issuecomment-1160512800
 opt.foldcolumn = '0'
 opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-opt.foldlevelstart = 99
+opt.foldlevelstart = 0
 opt.foldenable = false
 
 opt.spelllang = 'en_us'

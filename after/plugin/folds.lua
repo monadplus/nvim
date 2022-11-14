@@ -4,10 +4,6 @@ if not ok then
 end
 
 ufo.setup {
-  -- NOTE: Using LSP for now
-  -- provider_selector = function(bufnr, filetype, buftype)
-  --     return {'treesitter', 'indent'}
-  -- end
   preview = {
     win_config = {
       border = { '', '─', '', '', '', '─', '', '' },
@@ -19,6 +15,10 @@ ufo.setup {
       scrollD = '<C-d>'
     }
   },
+  -- Use treesitter for folds (lsp doesn't work well for rust)
+  provider_selector = function(bufnr, filetype, buftype)
+      return {'treesitter', 'indent'}
+  end,
 }
 
 vim.keymap.set('n', 'zR', ufo.openAllFolds, { silent = true, noremap = true, desc = "Open all" })

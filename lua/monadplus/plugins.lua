@@ -127,7 +127,7 @@ return require('packer').startup(function(use)
   }
 
   -- Utils
-  use 'rmagatti/auto-session'
+  -- use 'rmagatti/auto-session'
   use {
     'nvim-neorg/neorg',
     requires = "nvim-lua/plenary.nvim",

@@ -73,6 +73,7 @@ wk.register({
     -- e.g. f = { name = "+file", ['n'] = "foo"}
     b = { name = "+buffer" },
     c = { name = "+code" },
+    d = { name = "+debug" },
     f = { name = "+file" },
     g = { name = "+git" },
     h = { name = "+gitsigns" },

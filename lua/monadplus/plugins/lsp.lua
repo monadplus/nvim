@@ -109,8 +109,20 @@ rt.setup({
       lsp_on_attach(client, bufnr)
       vim.keymap.set('n', '<space>mc', rt.open_cargo_toml.open_cargo_toml,
         { noremap = true, silent = true, desc = "Open Cargo.toml" })
+      vim.keymap.set('n', '<space>ma', rt.hover_actions.hover_actions,
+        { noremap = true, silent = true, desc = "Hover actions" })
+      -- FIXME: Returns an error (20 Nov 2022)
+      -- vim.keymap.set({'v', 'x'}, '<Leader>t', rt.hover_range.hover_range, { silent = true, noremap = true, desc = "Show type" })
     end
   },
+  tools = {
+    inlay_hints = {
+      auto = false,
+    },
+    hover_actions = {
+      auto_focus = true,
+    }
+  }
 })
 
 -- Bash (bash-language-server)

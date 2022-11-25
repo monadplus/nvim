@@ -33,7 +33,7 @@ trouble.setup {
     toggle_preview = {}, -- toggle auto_preview
     hover = {}, -- opens a small popup with the full multiline message
     preview = {}, -- preview the diagnostic location
-    jump = {}, -- jump to the diagnostic or open / close folds
+    jump = { "o" }, -- jump to the diagnostic or open / close folds
   },
   indent_lines = true, -- add an indent guide below the fold icons
   auto_open = false, -- automatically open the list when you have diagnostics

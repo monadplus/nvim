@@ -55,7 +55,7 @@ return require('packer').startup(function(use)
 
   -- Debugging
   use 'mfussenegger/nvim-dap'
-  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
 
   -- Autocomplete
   use 'hrsh7th/nvim-cmp'
@@ -94,6 +94,7 @@ return require('packer').startup(function(use)
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } -- requires: gcc, make
   use 'glepnir/dashboard-nvim'
   use 'lukas-reineke/indent-blankline.nvim'
+  use 'MrcJkb/telescope-manix'
 
   -- Text editing
   use {

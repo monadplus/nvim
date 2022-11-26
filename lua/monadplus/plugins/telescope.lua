@@ -92,3 +92,17 @@ if ok2 then
   vim.keymap.set('n', '<leader>fs', telescope.extensions.lazygit.lazygit,
     { silent = true, noremap = true, desc = "Submodule" })
 end
+
+local manix_loaded, telescope_manix = pcall(require, "telescope-manix")
+if manix_loaded then
+  telescope.load_extension('manix')
+  vim.keymap.set('n', '<leader>fm', telescope_manix.search,
+    { silent = true, noremap = true, desc = "Nix (manix)" })
+  vim.keymap.set('n', '<leader>fM', function()
+    telescope_manix.search {
+      manix_args = {}, -- for example: `{'--source', 'nixpkgs_doc', '--source', 'nixpkgs_comments'}`
+      cword = true
+    }
+  end,
+    { silent = true, noremap = true, desc = "Nix (manix)" })
+end

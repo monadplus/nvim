@@ -146,6 +146,24 @@ Normal:
 - `<leader>wr`: remove workspace folder
 - `<leader>wl`: list workspace folders
 
+#### rust
+
+- `<leader>ma`: Hover code actions
+- `<leader>mc`: Open Cargo.toml
+
+#### haskell
+
+- `<leader>ma`: Hover code actions
+- `<leader>mc`: Open *.cabal
+- `<leader>mC`: Open stack.yaml
+- `<leader>mh`: Local hoogle word under cursor. Also works on `_` to search for possible candidates.
+  - `<CR>`: entry to clipboard
+  - `<C-b>`: open in browser
+  - `<C-r>`: replace word under cursor
+- `<leader>mt`: repl buffer
+- `<leader>mq`: quit repl
+- `<leader>mT`: repl project
+
 #### folke/trouble.nvim
 
 - `j`: next

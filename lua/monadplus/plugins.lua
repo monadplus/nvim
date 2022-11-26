@@ -45,10 +45,12 @@ return require('packer').startup(function(use)
   -- LSP
   use 'neovim/nvim-lspconfig'
   use 'simrat39/rust-tools.nvim'
+  use 'MrcJkb/haskell-tools.nvim'
   use {
     'folke/trouble.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
   }
+  use 'hkupty/iron.nvim'
   -- use 'kosayoda/nvim-lightbulb' -- Disabled: performance cost > usefulness
 
   -- Debugging

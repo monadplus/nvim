@@ -88,12 +88,98 @@ lsp_custom_settings.sumneko_lua = {
   },
 }
 
--- Haskell (hls)
-lsp_custom_settings.hls = {
-  haskell = {
-    formattingProvider = "ormolu"
-  }
+-- See https://github.com/MrcJkb/haskell-tools.nvim#advanced-configuration
+local ht = require('haskell-tools')
+ht.setup {
+  tools = {
+    codeLens = {
+      autoRefresh = false, -- Disable all code lens
+    },
+    hoogle = {
+      mode = 'auto', -- autor, telescope-local, telescope-web, browser
+    },
+    hover = {
+      disable = true,
+      auto_focus = false,
+    },
+    tags = {
+      enable = vim.fn.executable('fast-tags') == 1,
+      package_events = { 'BufWritePost' },
+    },
+  },
+  hls = {
+    on_attach = function(client, bufnr)
+      lsp_on_attach(client, bufnr)
+
+      vim.keymap.set('n', '<space>ma', vim.lsp.codelens.run,
+        { noremap = true, silent = true, desc = "Run code lens" })
+      vim.keymap.set('n', '<space>mh', ht.hoogle.hoogle_signature,
+        { noremap = true, silent = true, desc = "Hoogle" })
+      vim.keymap.set('n', '<leader>mc', ht.project.open_package_cabal,
+        { noremap = true, silent = true, desc = "Open *.cabal" })
+      vim.keymap.set('n', '<leader>mC', ht.project.open_package_yaml,
+        { noremap = true, silent = true, desc = "Open *.yaml" })
+      -- vim.keymap.set('n', '<leader>mt', function()
+      --   ht.repl.toggle(vim.api.nvim_buf_get_name(0))
+      -- end, { noremap = true, silent = true, desc = "Repl: buffer" })
+      -- vim.keymap.set('n', '<leader>mT', ht.repl.toggle,
+      --   { noremap = true, silent = true, desc = "Repl: project" })
+      -- vim.keymap.set('n', '<leader>mq', ht.repl.quit,
+      --   { noremap = true, silent = true, desc = "Repl: quit" })
+    end,
+    settings = {
+      haskell = {
+        formattingProvider = 'ormolu',
+        plugin = {
+          class = { -- missing class methods
+            codeLensOn = false,
+          },
+          importLens = { -- make import lists fully explicit
+            codeLensOn = false,
+          },
+          refineImports = { -- refine imports
+            codeLensOn = false,
+          },
+          tactics = { -- wingman
+            codeLensOn = false,
+          },
+          moduleName = { -- fix module names
+            globalOn = false,
+          },
+          eval = { -- evaluate code snippets
+            globalOn = false,
+          },
+          ['ghcide-type-lenses'] = { -- show/add missing type signatures
+            globalOn = false,
+          },
+        },
+      },
+    },
+  },
 }
+
+-- TODO: doesn't work (the buffer is irresponsive; maybe nix)
+-- https://github.com/hkupty/iron.nvim
+local iron_loaded, iron = pcall(require, "iron.core")
+if iron_loaded then
+  iron.setup {
+    config = {
+      repl_definition = {
+        haskell = {
+          command = function(meta)
+            local filename = vim.api.nvim_buf_get_name(meta.current_bufnr)
+            return ht.repl.mk_repl_cmd(filename)
+          end,
+        },
+      },
+    },
+  }
+end
+
+local telescope_loaded, telescope = pcall(require, "telescope")
+if telescope_loaded then
+  telescope.load_extension('ht')
+end
 
 -- Markdown (marksman)
 lsp_custom_settings.marksman = {}
@@ -107,10 +193,11 @@ rt.setup({
   server = {
     on_attach = function(client, bufnr)
       lsp_on_attach(client, bufnr)
+
       vim.keymap.set('n', '<space>mc', rt.open_cargo_toml.open_cargo_toml,
         { noremap = true, silent = true, desc = "Open Cargo.toml" })
       vim.keymap.set('n', '<space>ma', rt.hover_actions.hover_actions,
-        { noremap = true, silent = true, desc = "Hover actions" })
+        { noremap = true, silent = true, desc = "Hover code actions" })
       -- FIXME: Returns an error (20 Nov 2022)
       -- vim.keymap.set({'v', 'x'}, '<Leader>t', rt.hover_range.hover_range, { silent = true, noremap = true, desc = "Show type" })
     end

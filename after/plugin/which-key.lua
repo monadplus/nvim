@@ -79,6 +79,7 @@ wk.register({
     h = { name = "+gitsigns" },
     m = { name = "+lsp" },
     o = { name = "+open" },
+    r = { name = "+repl" },
     t = { name = "+toggle" },
     v = { name = "+diffview" },
     x = { name = "+trouble" },

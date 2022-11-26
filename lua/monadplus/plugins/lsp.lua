@@ -46,7 +46,7 @@ local lsp_on_attach = function(client, bufnr)
     { noremap = true, silent = true, buffer = bufnr, desc = "Format" })
   vim.keymap.set('n', '<leader>mR', ":LspRestart<CR>",
     { noremap = true, silent = true, buffer = bufnr, desc = "Restart LSP" })
-  vim.keymap.set('n', '<leader>ml', ":LspLog<CR>", { noremap = true, silent = true, buffer = bufnr, desc = "LSP log" })
+  vim.keymap.set('n', '<leader>mL', ":LspLog<CR>", { noremap = true, silent = true, buffer = bufnr, desc = "LSP log" })
 end
 
 ----------------------------------------------------------
@@ -115,17 +115,21 @@ ht.setup {
         { noremap = true, silent = true, desc = "Run code lens" })
       vim.keymap.set('n', '<space>mh', ht.hoogle.hoogle_signature,
         { noremap = true, silent = true, desc = "Hoogle" })
+      -- TODO: read haskell-tools sources and create a method to search both.
       vim.keymap.set('n', '<leader>mc', ht.project.open_package_cabal,
-        { noremap = true, silent = true, desc = "Open *.cabal" })
+        { noremap = true, silent = true, desc = "Open <project>.cabal" })
       vim.keymap.set('n', '<leader>mC', ht.project.open_package_yaml,
-        { noremap = true, silent = true, desc = "Open *.yaml" })
-      -- vim.keymap.set('n', '<leader>mt', function()
-      --   ht.repl.toggle(vim.api.nvim_buf_get_name(0))
-      -- end, { noremap = true, silent = true, desc = "Repl: buffer" })
-      -- vim.keymap.set('n', '<leader>mT', ht.repl.toggle,
-      --   { noremap = true, silent = true, desc = "Repl: project" })
-      -- vim.keymap.set('n', '<leader>mq', ht.repl.quit,
-      --   { noremap = true, silent = true, desc = "Repl: quit" })
+        { noremap = true, silent = true, desc = "Open stack.yaml" })
+      vim.keymap.set('n', '<leader>mt', function()
+        ht.repl.toggle(vim.api.nvim_buf_get_name(0))
+      end, { noremap = true, silent = true, desc = "Repl: buffer" })
+      vim.keymap.set('n', '<leader>mT', ht.repl.toggle,
+        { noremap = true, silent = true, desc = "Repl: project" })
+      vim.keymap.set('n', '<leader>mq', ht.repl.quit,
+        { noremap = true, silent = true, desc = "Repl: quit" })
+      vim.keymap.set('n', '<leader>ml', function()
+        ht.repl.load_file(vim.api.nvim_buf_get_name(0))
+      end, { noremap = true, silent = true, desc = "Load" })
     end,
     settings = {
       haskell = {
@@ -157,24 +161,6 @@ ht.setup {
     },
   },
 }
-
--- TODO: doesn't work (the buffer is irresponsive; maybe nix)
--- https://github.com/hkupty/iron.nvim
-local iron_loaded, iron = pcall(require, "iron.core")
-if iron_loaded then
-  iron.setup {
-    config = {
-      repl_definition = {
-        haskell = {
-          command = function(meta)
-            local filename = vim.api.nvim_buf_get_name(meta.current_bufnr)
-            return ht.repl.mk_repl_cmd(filename)
-          end,
-        },
-      },
-    },
-  }
-end
 
 local telescope_loaded, telescope = pcall(require, "telescope")
 if telescope_loaded then

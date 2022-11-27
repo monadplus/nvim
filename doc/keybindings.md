@@ -123,6 +123,24 @@ VISUAL mode:
 - `gc` - Toggles the region using linewise comment
 - `gb` - Toggles the region using blockwise comment
 
+### nvim-orgmode/orgmode
+
+For help: `g?`
+
+- Agenda: `<leader>oa`
+- Capture: `<leader>oc`
+- Org files:
+  - `<Tab>` / `<S-Tab>`: toggle folding
+  - `<<` / `>>`: promote headline
+  - `<s` / `>s`: promote subtree
+  - `<leader><cr>`: add headline/list item
+  - `<C-space>`: checkbox
+  - `<leader>oi`: insert timestamp/deadline/headline/todo item
+  - `<C-a>\<C-x>`: increase/decrease date
+  - `cid`: change date via calendar
+
+Tutorial: https://github.com/nvim-orgmode/orgmode/wiki/Getting-Started
+
 ### neovim/nvim-lspconfig
 
 Navigation:

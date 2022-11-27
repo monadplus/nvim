@@ -49,3 +49,7 @@ opt.foldlevelstart = 0
 opt.foldenable = false
 
 opt.spelllang = 'en_us'
+
+-- https://github.com/nvim-orgmode/orgmode#links-are-not-concealed
+opt.conceallevel = 2
+opt.concealcursor = 'vc'

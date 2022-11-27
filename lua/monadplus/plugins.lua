@@ -132,6 +132,7 @@ return require('packer').startup(function(use)
 
   -- Utils
   use 'rmagatti/auto-session'
+  use 'nvim-orgmode/orgmode'
   use 'folke/which-key.nvim'
   use {
     'kevinhwang91/nvim-ufo',

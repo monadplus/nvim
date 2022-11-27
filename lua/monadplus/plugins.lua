@@ -132,12 +132,6 @@ return require('packer').startup(function(use)
 
   -- Utils
   use 'rmagatti/auto-session'
-  use {
-    'nvim-neorg/neorg',
-    requires = "nvim-lua/plenary.nvim",
-    run = ":Neorg sync-parsers", -- update treesitter parser
-    -- tag = "*", -- Latest stable release
-  }
   use 'folke/which-key.nvim'
   use {
     'kevinhwang91/nvim-ufo',

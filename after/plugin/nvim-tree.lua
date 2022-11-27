@@ -5,11 +5,11 @@ end
 
 -- :help nvim-tree
 nvim_tree.setup({
-  open_on_setup = false,
+  open_on_setup = true,
   open_on_setup_file = false,
   sort_by = "name",
   diagnostics = {
-    enable = false, -- Cluttered
+    enable = false,
   },
   view = {
     adaptive_size = true,
@@ -27,10 +27,13 @@ nvim_tree.setup({
   renderer = {
     add_trailing = true,
     group_empty = true,
-    highlight_git = false, -- color depending on git status
+    highlight_git = true,
   },
   filters = {
     dotfiles = false,
+  },
+  git = {
+    ignore = false,
   },
 })
 

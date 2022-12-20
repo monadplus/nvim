@@ -33,7 +33,7 @@ return require('packer').startup(function(use)
     'lewis6991/gitsigns.nvim',
     -- tag = 'release'
   }
-  -- use 'kdheepak/lazygit.nvim' -- lazygit crashes too often
+  use 'kdheepak/lazygit.nvim'
 
   -- Treesitter
   use {

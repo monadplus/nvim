@@ -1,6 +1,3 @@
--- NOTE: Disabled in favour of neogit
--- Lazygit although being better, crashes too often.
-
 local ok, lazygit = pcall(require, "lazygit")
 if not ok then
   return

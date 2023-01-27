@@ -186,7 +186,17 @@ rt.setup({
         { noremap = true, silent = true, desc = "Hover code actions" })
       -- FIXME: Returns an error (20 Nov 2022)
       -- vim.keymap.set({'v', 'x'}, '<Leader>t', rt.hover_range.hover_range, { silent = true, noremap = true, desc = "Show type" })
-    end
+    end,
+    settings = {
+      ["rust-analyzer"] = {
+        checkOnSave = {
+          enable = true,
+        },
+        procMacro = {
+          enable = true
+        },
+      }
+    }
   },
   tools = {
     inlay_hints = {

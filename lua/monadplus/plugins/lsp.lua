@@ -60,11 +60,11 @@ local lsp_flags = {
 -- Add your custom configurations here.
 local lsp_custom_settings = {}
 
--- Must be called before sumneko_lua
+-- Must be called before lua_ls
 require("neodev").setup {}
 
--- Lua (sumneko/lua-language-server)
-lsp_custom_settings.sumneko_lua = {
+-- https://github.com/luals/lua-language-server
+lsp_custom_settings.lua_ls = {
   Lua = {
     runtime = {
       -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)

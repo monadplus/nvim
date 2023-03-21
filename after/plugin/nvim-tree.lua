@@ -5,8 +5,6 @@ end
 
 -- :help nvim-tree
 nvim_tree.setup({
-  open_on_setup = true,
-  open_on_setup_file = false,
   sort_by = "name",
   diagnostics = {
     enable = false,

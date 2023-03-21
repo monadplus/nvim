@@ -92,7 +92,7 @@ return require('packer').startup(function(use)
     }
   }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } -- requires: gcc, make
-  use 'glepnir/dashboard-nvim'
+  use { 'glepnir/dashboard-nvim', commit = 'f7d623457d6621b25a1292b24e366fae40cb79ab'}
   use 'lukas-reineke/indent-blankline.nvim'
   use 'MrcJkb/telescope-manix'
 
@@ -131,7 +131,7 @@ return require('packer').startup(function(use)
   }
 
   -- Utils
-  use 'rmagatti/auto-session'
+  -- use 'rmagatti/auto-session' -- I'd rather start from a fresh session.
   use 'nvim-orgmode/orgmode'
   use 'folke/which-key.nvim'
   use {
@@ -141,7 +141,7 @@ return require('packer').startup(function(use)
 
   -- Neovim + Lua development
   use 'folke/neodev.nvim'
-  use 'rcarriga/nvim-notify'
+  -- use 'rcarriga/nvim-notify'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

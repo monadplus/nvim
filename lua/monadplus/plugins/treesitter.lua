@@ -10,6 +10,7 @@ require 'nvim-treesitter.configs'.setup {
     "c",
     "haskell",
     "json",
+    "jsonc", -- neoconf depends on
     "lua",
     "markdown",
     "nix",

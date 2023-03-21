@@ -52,6 +52,7 @@ return require('packer').startup(function(use)
   }
   use 'hkupty/iron.nvim'
   -- use 'kosayoda/nvim-lightbulb' -- Disabled: performance cost > usefulness
+  use 'folke/neoconf.nvim'
 
   -- Debugging
   use 'mfussenegger/nvim-dap'

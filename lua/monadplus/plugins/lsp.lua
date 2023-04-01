@@ -254,11 +254,14 @@ rt.setup({
 -- Bash (bash-language-server)
 lsp_custom_settings.bashls = {}
 
--- Nix (rnix)
-lsp_custom_settings.rnix = {}
-
--- Nix (rnix)
-lsp_custom_settings.rnix = {}
+-- Nix (nil)
+lsp_custom_settings.nil_ls = {
+  ['nil'] = {
+    formatting = {
+      command = { "nixpkgs-fmt" },
+    },
+  },
+}
 
 -- Yaml (yaml-language-server)
 lsp_custom_settings.yamlls = {} -- schema validation must be configured here

@@ -19,12 +19,18 @@ telescope.setup {
       i = {
         ["<esc>"] = actions.close,
         ["<C-h>"] = "which_key",
+        ["<C-k>"] = actions.cycle_history_next,
+        ["<C-j>"] = actions.cycle_history_prev,
       },
     },
     prompt_prefix = "   ",
     path_display = { "absolute" },
     -- `hidden = true` is not supported in text grep commands.
     vimgrep_arguments = vimgrep_arguments,
+    history = {
+      path = '~/.local/share/nvim/databases/telescope_history.sqlite3',
+      limit = 100,
+    },
   },
   pickers = {
     find_files = {
@@ -33,10 +39,10 @@ telescope.setup {
   },
   extensions = {
     fzf = {
-      fuzzy = true, -- false will only do exact matching
+      fuzzy = true,                   -- false will only do exact matching
       override_generic_sorter = true, -- override the generic sorter
-      override_file_sorter = true, -- override the file sorter
-      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+      override_file_sorter = true,    -- override the file sorter
+      case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
       -- the default case_mode is "smart_case"
     }
   },
@@ -45,23 +51,10 @@ telescope.setup {
 -- Extensions
 -- TODO: conditionally execute with `pcall`
 telescope.load_extension('fzf')
+telescope.load_extension('smart_history')
 
 -- Keymaps
 local builtins = require('telescope.builtin')
-local telescope_state = require('telescope.state')
-
--- FIXME: resume always chooses the last command (not necessary live_grep)
-local last_grep = nil
-local function live_grep_with_cache()
-  if last_grep == nil then
-    builtins.live_grep()
-    local cached_pickers = telescope_state.get_global_key "cached_pickers"
-    last_grep = cached_pickers[1]
-  else
-    builtins.resume({ picker = last_grep })
-  end
-end
-
 vim.keymap.set('n', '<leader><leader>', builtins.find_files, { silent = true, noremap = true, desc = "Files" })
 vim.keymap.set('n', '<leader>/', builtins.live_grep, { silent = true, noremap = true, desc = "Grep" })
 vim.keymap.set('n', '<leader>*', builtins.grep_string, { silent = true, noremap = true, desc = "Grep word" })
@@ -99,10 +92,10 @@ if manix_loaded then
   vim.keymap.set('n', '<leader>fm', telescope_manix.search,
     { silent = true, noremap = true, desc = "Nix (manix)" })
   vim.keymap.set('n', '<leader>fM', function()
-    telescope_manix.search {
-      manix_args = {}, -- for example: `{'--source', 'nixpkgs_doc', '--source', 'nixpkgs_comments'}`
-      cword = true
-    }
-  end,
+      telescope_manix.search {
+        manix_args = {}, -- for example: `{'--source', 'nixpkgs_doc', '--source', 'nixpkgs_comments'}`
+        cword = true
+      }
+    end,
     { silent = true, noremap = true, desc = "Nix (manix)" })
 end

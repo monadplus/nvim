@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
 
   use 'lewis6991/impatient.nvim' -- Faster nvim startup
 
-  use 'nvim-lua/plenary.nvim' -- Better std
+  use 'nvim-lua/plenary.nvim'    -- Better std
 
   -- Git
   use {
@@ -93,7 +93,8 @@ return require('packer').startup(function(use)
     }
   }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } -- requires: gcc, make
-  use { 'glepnir/dashboard-nvim', commit = 'f7d623457d6621b25a1292b24e366fae40cb79ab'}
+  use { 'nvim-telescope/telescope-smart-history.nvim', requires = { 'kkharji/sqlite.lua' } }
+  use { 'glepnir/dashboard-nvim', commit = 'f7d623457d6621b25a1292b24e366fae40cb79ab' }
   use 'lukas-reineke/indent-blankline.nvim'
   use 'MrcJkb/telescope-manix'
 
@@ -104,7 +105,7 @@ return require('packer').startup(function(use)
   }
   use 'numToStr/Comment.nvim'
   use 'junegunn/vim-slash' -- :nohlsearch when cursor moves
-  use 'mbbill/undotree' -- Undo UI
+  use 'mbbill/undotree'    -- Undo UI
   use 'windwp/nvim-autopairs'
   use {
     'kylechui/nvim-surround',
@@ -124,8 +125,8 @@ return require('packer').startup(function(use)
   }
   use 'RRethy/vim-illuminate' -- Highlight current word
   use 'karb94/neoscroll.nvim' -- Smooth <C-d>, <C-u>, ...
-  use 'folke/twilight.nvim' -- dim inactive portions of code
-  use 'folke/zen-mode.nvim' -- distraction free mode
+  use 'folke/twilight.nvim'   -- dim inactive portions of code
+  use 'folke/zen-mode.nvim'   -- distraction free mode
   use {
     'folke/todo-comments.nvim',
     requires = "nvim-lua/plenary.nvim",

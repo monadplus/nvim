@@ -12,6 +12,26 @@ table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!.git/*")
 table.insert(vimgrep_arguments, "--trim")
 
+-- Disable highlighting for certain files
+local previewers = require('telescope.previewers')
+local _bad = { '.*%.csv', '.*%.js' }
+local bad_files = function(filepath)
+  for _, v in ipairs(_bad) do
+    if filepath:match(v) then
+      return false
+    end
+  end
+
+  return true
+end
+
+local new_maker = function(filepath, bufnr, opts)
+  opts = opts or {}
+  if opts.use_ft_detect == nil then opts.use_ft_detect = true end
+  opts.use_ft_detect = opts.use_ft_detect == false and false or bad_files(filepath)
+  previewers.buffer_previewer_maker(filepath, bufnr, opts)
+end
+
 -- :help telescope.setup()
 telescope.setup {
   defaults = {
@@ -31,6 +51,7 @@ telescope.setup {
       path = '~/.local/share/nvim/databases/telescope_history.sqlite3',
       limit = 100,
     },
+    buffer_previewer_maker = new_maker,
   },
   pickers = {
     find_files = {

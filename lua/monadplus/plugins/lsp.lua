@@ -139,7 +139,7 @@ ht.setup {
       autoRefresh = false, -- Disable all code lens
     },
     hoogle = {
-      mode = 'auto', -- autor, telescope-local, telescope-web, browser
+      mode = 'telescope-web', -- autor, telescope-local, telescope-web, browser
     },
     hover = {
       disable = true,

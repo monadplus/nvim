@@ -73,6 +73,8 @@ telescope.setup {
 -- TODO: conditionally execute with `pcall`
 telescope.load_extension('fzf')
 telescope.load_extension('smart_history')
+-- Not very useful
+-- telescope.load_extension('ht') -- https://github.com/mrcjkb/haskell-tools.nvim#telescope-extension
 
 -- Keymaps
 local builtins = require('telescope.builtin')

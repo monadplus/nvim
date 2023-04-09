@@ -30,8 +30,8 @@ Once everything is installed, check all plugins are correctly installed:
 
 And update treesitter parsers (see [treesitter.lua](/lua/monadplus/plugins/treesitter.lua)):
 
-```vim
-// Stored at '/home/arnau/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser'
+```bash
+# Stored at '/home/arnau/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser'
 :TSUpdate
 ```
 
@@ -57,7 +57,7 @@ This configuration expects the following LSP servers:
 - pyright (python)
 - marksman (markdown)
 - lua-language-server (lua)
-- rnix (nix)
+- nil (nix)
 - rust-analyzer (rust)
 - yaml-language-server (yaml)
 

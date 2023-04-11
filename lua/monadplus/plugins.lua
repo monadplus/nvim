@@ -141,6 +141,7 @@ return require('packer').startup(function(use)
     'kevinhwang91/nvim-ufo',
     requires = 'kevinhwang91/promise-async'
   }
+  use 'famiu/bufdelete.nvim'
 
   -- Neovim + Lua development
   use 'folke/neodev.nvim'

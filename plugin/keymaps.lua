@@ -16,5 +16,9 @@ vim.keymap.set('n', '<leader>bt', trim_trailing_whitespaces, { silent = true, no
 
 vim.keymap.set('n', '<leader>`', "<cmd>b#<cr>", { silent = true, noremap = true, desc = "Previous buffer" })
 
-vim.keymap.set('n', '<leader>bd', "<cmd>bd!<cr>", { silent = true, noremap = true, desc = "Delete buffer" })
-vim.keymap.set('n', '<leader>bD', "<cmd>%bd<cr><cmd>Dashboard<cr>", { silent = true, noremap = true, desc = "Delete all buffer" })
+local loaded, _ = pcall(require, "bufdelete")
+if loaded then
+  vim.keymap.set('n', '<leader>bd', "<cmd>:Bdelete<cr>", { silent = true, noremap = true, desc = "Delete buffer" })
+end
+vim.keymap.set('n', '<leader>bD', "<cmd>bd!<cr>", { silent = true, noremap = true, desc = "Delete (force) buffer" })
+vim.keymap.set('n', '<leader>bc', "<cmd>%bd<cr><cmd>Dashboard<cr>", { silent = true, noremap = true, desc = "Clear all buffer" })

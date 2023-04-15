@@ -113,6 +113,7 @@ return require('packer').startup(function(use)
     tag = "*", -- Latest stable release
   }
   use 'mg979/vim-visual-multi'
+  use 'chentoast/marks.nvim'
 
   -- Themes
   use 'Mofiqul/dracula.nvim'

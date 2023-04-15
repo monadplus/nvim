@@ -1,34 +1,8 @@
-# Keybindings: Cheat Sheet
+# Keybindings
 
-## Tmux
+> Not all bindings are listed here. I recommend checking [what plugins are installed](./lua/monadplus/plugins.lua), and going to each specific plugin configuration file. Usually they share the same name as the plugin, e.g. [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) is configured at [telescope.lua](./lua/monadplus/plugins/telescope.lua).
 
-The tmux keybindings are modified by the plugin [tmux-vim-bindings](https://github.com/ek9/tmux-vim-bindings/blob/master/bindings.tmux). Prefix: `M-a` (recall `M = <Alt>`)
-
-- `M-r`: reload
-- `M-n`: manual command
-- `M-m`: man
-- `M-e`: choose session
-- `Prefix + )`/`Prefix + (`: next/previous session
-- `Prefix + d`: detach session
-- `M-t`: rename session
-- `Prefix + ,`: rename windows
-- `M-w`: list windows
-- `M-backtick`: last-window
-- `M-tab`: last-pane
-- `M-c`: new window
-- `M-x`: kill-pane/kill-window
-- `M-s`: split window horizontal
-- `M-v`: split window vertical
-- `M-'`: select window manually
-- `M-1/2/.../12`: select window n
-- `M-h/j/k/l`: focus pane
-- `M-Left/Up/Right/Down`: resize pane
-- `M-,`: swap pane
-- `M-.`: swap pane
-
-## Neovim
-
-### ThePrimeagen/harpoon
+## ThePrimeagen/harpoon
 
 - `<leader>aa`: add file to harpoon
 - `<leader>ap`: go to previous mark
@@ -46,7 +20,7 @@ The tmux keybindings are modified by the plugin [tmux-vim-bindings](https://gith
     - `q`/`<esc>`: exit
     - `<c-d>`: delete mark
 
-### TimUntersberger/neogit
+## TimUntersberger/neogit
 
 - `<leader>gg`: status buffer
 - `<leader>gc`: commit
@@ -57,7 +31,7 @@ The tmux keybindings are modified by the plugin [tmux-vim-bindings](https://gith
 On git buffer:
 - `d`: open diffview
 
-### sindrets/diffview.nvim
+## sindrets/diffview.nvim
 
 Normal-mode:
 - `<leader>vv`: open diffview
@@ -104,7 +78,7 @@ Fore more info:
 - :h :DiffviewFileHistory
 - :h diffview-merge-tool
 
-### lewis6991/gitsigns.nvim
+## lewis6991/gitsigns.nvim
 
 Navigation:
 - `]c`: next hunk
@@ -123,7 +97,7 @@ Actions:
 - `<leader>hD`: diff hunk
 - `<leader>td`: toggle deleted
 
-### numToStr/Comment.nvim
+## numToStr/Comment.nvim
 
 NORMAL mode:
 - `gcc` - Toggles the current line using linewise comment
@@ -141,7 +115,7 @@ VISUAL mode:
 - `gc` - Toggles the region using linewise comment
 - `gb` - Toggles the region using blockwise comment
 
-### nvim-orgmode/orgmode
+## nvim-orgmode/orgmode
 
 For help: `g?`
 
@@ -159,7 +133,7 @@ For help: `g?`
 
 Tutorial: https://github.com/nvim-orgmode/orgmode/wiki/Getting-Started
 
-### neovim/nvim-lspconfig
+## neovim/nvim-lspconfig
 
 Navigation:
 - `[d`: next diagnostic
@@ -183,14 +157,14 @@ Normal:
 - `<leader>wr`: remove workspace folder
 - `<leader>wl`: list workspace folders
 
-#### rust
+### rust
 
 - `<leader>ma`: Hover code actions
 - `<leader>mc`: Open Cargo.toml
 - `<leader>mm`: Expand macro
 - `<leader>mp`: Go to parent module
 
-#### haskell
+### haskell
 
 - `<leader>ma`: Hover code actions
 - `<leader>mc`: Open *.cabal
@@ -204,7 +178,7 @@ Normal:
 - `<leader>ml`: repl load file
 - `<leader>mq`: quit repl
 
-#### folke/trouble.nvim
+## folke/trouble.nvim
 
 - `j`: next
 - `k`: previous
@@ -213,7 +187,7 @@ Normal:
 - `<c-s>`: open hsplit
 - `<c-v>`: open vsplit
 
-### L3MON4D3/LuaSnip
+## L3MON4D3/LuaSnip
 
 Normal:
 - `<C-space>`: complete
@@ -228,7 +202,7 @@ Snippet:
 - `<Tab>`: next
 - `<S-Tab>`: previous
 
-### kylechui/nvim-surround
+## kylechui/nvim-surround
 
 Normal:
 - `ys{motion}{char}`: add
@@ -240,12 +214,12 @@ Visual/Select:
 
 More at https://github.com/kylechui/nvim-surround/blob/main/doc/nvim-surround.txt
 
-### mbbill/undotree
+## mbbill/undotree
 
 - `U`: open undo tree
 - `?`: help
 
-### mg979/vim-visual-multi
+## mg979/vim-visual-multi
 
 > leader here refers to VM_leader (default '\\')
 
@@ -287,7 +261,12 @@ Visual-mode:
 
 > vim-visual-multi can do a lot more, but this is enough to take out 80% of it.
 
-### Folds
+## RRethy/vim-illuminate 
+
+- `]w`: go to next 
+- `[w`: go to previous
+
+## Folds
 
 Using [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo).
 
@@ -303,7 +282,7 @@ Using [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo).
     - `<c-u>`: scroll up
     - `<c-d>`: scroll down
 
-### Spelling
+## Spelling
 
 `]s`: Move to the next misspelt word
 `[s`: Move to the previous misspelt word

@@ -149,16 +149,17 @@ Navigation:
 
 Normal:
 - `gd`: go to definition
-- `gD`: go to references
+- `gD`: go to definition (vsplit)
+- `gr`: go to references
 - `gi`: go to implementation
 - `K`: hover short docs
-- `<C-K>`: hover long docs
-
-- `<leader>rn`: rename
+- `<C-k>`: hover long docs
 - `<leader>ca`: code action
-- `<leader>f`: format
-- `<leader>e`: hover
-- `<leader>q`: list diagnostics
+- `<leader>me`: Show errors under cursor
+- `<leader>mf`: format
+- `<leader>mr`: rename
+- `<leader>mR`: Restart LSP
+- `<leader>mL`: Show LSP logs
 
 - `<leader>wa`: add workspace folder
 - `<leader>wr`: remove workspace folder
@@ -168,6 +169,8 @@ Normal:
 
 - `<leader>ma`: Hover code actions
 - `<leader>mc`: Open Cargo.toml
+- `<leader>mm`: Expand macro
+- `<leader>mp`: Go to parent module
 
 #### haskell
 
@@ -179,8 +182,9 @@ Normal:
   - `<C-b>`: open in browser
   - `<C-r>`: replace word under cursor
 - `<leader>mt`: repl buffer
-- `<leader>mq`: quit repl
 - `<leader>mT`: repl project
+- `<leader>ml`: repl load file
+- `<leader>mq`: quit repl
 
 #### folke/trouble.nvim
 

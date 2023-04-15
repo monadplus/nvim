@@ -8,8 +8,8 @@ if ok then
     -- import existing settinsg from other plugins
     import = {
       vscode = true, -- local .vscode/settings.json
-      coc = true, -- global/local coc-settings.json
-      nlsp = true, -- global/local nlsp-settings.nvim json settings
+      coc = true,    -- global/local coc-settings.json
+      nlsp = true,   -- global/local nlsp-settings.nvim json settings
     },
     -- send new configuration to lsp clients when changing json settings
     live_reload = true,
@@ -49,9 +49,9 @@ end
 ----------------------------------------------------------
 -- Keybindings
 
-vim.keymap.set('n', '<leader>me', vim.diagnostic.open_float, { silent = true, noremap = true, desc = "Show diagnostic" })
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { silent = true, noremap = true, desc = "Previous diagnostic" })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { silent = true, noremap = true, desc = "Next diagnostic" })
+vim.keymap.set('n', '<leader>me', vim.diagnostic.open_float, { silent = true, noremap = true, desc = "Show diagnostic" })
 
 local function on_list(options)
   vim.fn.setqflist({}, ' ', options)
@@ -69,11 +69,18 @@ local lsp_on_attach = function(client, bufnr)
       on_list = on_list
     }
   end, { noremap = true, silent = true, buffer = bufnr, desc = "Definition" })
+  vim.keymap.set('n', 'gD', function()
+    vim.cmd(':vsplit')
+    vim.lsp.buf.definition {
+      reuse_win = true,
+      on_list = on_list
+    }
+  end, { noremap = true, silent = true, buffer = bufnr, desc = "Definition (vsplit)" })
   if pcall(require, "trouble") then
-    vim.keymap.set('n', 'gD', "<cmd>TroubleToggle lsp_references<cr>",
+    vim.keymap.set('n', 'gr', "<cmd>TroubleToggle lsp_references<cr>",
       { noremap = true, silent = true, buffer = bufnr, desc = "References" })
   else
-    vim.keymap.set('n', 'gD', vim.lsp.buf.references,
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references,
       { noremap = true, silent = true, buffer = bufnr, desc = "References" })
   end
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation,
@@ -223,16 +230,19 @@ rt.setup({
     on_attach = function(client, bufnr)
       lsp_on_attach(client, bufnr)
 
-      vim.keymap.set('n', '<space>mc', rt.open_cargo_toml.open_cargo_toml,
+      vim.keymap.set('n', '<leader>mc', rt.open_cargo_toml.open_cargo_toml,
         { noremap = true, silent = true, desc = "Open Cargo.toml" })
-      vim.keymap.set('n', '<space>ma', rt.hover_actions.hover_actions,
+      vim.keymap.set('n', '<leader>ma', rt.hover_actions.hover_actions,
         { noremap = true, silent = true, desc = "Hover code actions" })
-      -- FIXME: Returns an error (20 Nov 2022)
-      -- vim.keymap.set({'v', 'x'}, '<Leader>t', rt.hover_range.hover_range, { silent = true, noremap = true, desc = "Show type" })
+      vim.keymap.set('n', '<leader>mm', rt.expand_macro.expand_macro,
+        { noremap = true, silent = true, desc = "Expand macro" })
+      vim.keymap.set('n', '<leader>mp', rt.parent_module.parent_module,
+        { noremap = true, silent = true, desc = "Parent module" })
     end,
     settings = {
       ["rust-analyzer"] = {
         checkOnSave = {
+          -- Disable to speed up rust-analyzer on long project (but say goodbye to some features..)
           enable = true,
         },
         procMacro = {

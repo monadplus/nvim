@@ -87,7 +87,6 @@ vim.keymap.set('n', '<leader>fh', builtins.help_tags, { silent = true, noremap =
 vim.keymap.set('n', '<leader>fc', builtins.commands, { silent = true, noremap = true, desc = "Commands" })
 vim.keymap.set('n', '<leader>fC', builtins.colorscheme, { silent = true, noremap = true, desc = "Colorschemes" })
 vim.keymap.set('n', '<leader>fr', builtins.oldfiles, { silent = true, noremap = true, desc = "Recent" })
-vim.keymap.set('n', '<leader>ff', builtins.resume, { silent = true, noremap = true, desc = "Resume" })
 
 local ok0 = pcall(require, "notify")
 if ok0 then
@@ -121,4 +120,11 @@ if manix_loaded then
       }
     end,
     { silent = true, noremap = true, desc = "Nix (manix)" })
+end
+
+local ok3 = pcall(require, "harpoon")
+if ok3 then
+  telescope.load_extension('harpoon')
+  vim.keymap.set('n', '<leader>ff', telescope.extensions.harpoon.marks,
+    { silent = true, noremap = true, desc = "Harpoon" })
 end

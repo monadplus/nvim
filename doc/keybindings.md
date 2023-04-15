@@ -28,6 +28,24 @@ The tmux keybindings are modified by the plugin [tmux-vim-bindings](https://gith
 
 ## Neovim
 
+### ThePrimeagen/harpoon
+
+- `<leader>aa`: add file to harpoon
+- `<leader>ap`: go to previous mark
+- `<leader>an`: go to next mark
+- `<leader>af`: list harpoon files
+    - `<enter>`: go to file
+    - `<c-v>`: go to file (vsplit)
+    - `<c-x>`: go to file (hsplit)
+    - `q`/`<esc>`: exit
+    - `D`: delete mark
+- `<leader>ff`: telescope harpoon
+    - `<enter>`: go to file
+    - `<c-v>`: go to file (vsplit)
+    - `<c-x>`: go to file (hsplit)
+    - `q`/`<esc>`: exit
+    - `<c-d>`: delete mark
+
 ### TimUntersberger/neogit
 
 - `<leader>gg`: status buffer

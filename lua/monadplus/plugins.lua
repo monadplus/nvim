@@ -113,7 +113,13 @@ return require('packer').startup(function(use)
     tag = "*", -- Latest stable release
   }
   use 'mg979/vim-visual-multi'
-  use 'chentoast/marks.nvim'
+  -- use 'chentoast/marks.nvim' -- Not so useful
+  use {
+    'ThePrimeagen/harpoon',
+    requires = {
+      'nvim-lua/plenary.nvim',
+    }
+  }
 
   -- Themes
   use 'Mofiqul/dracula.nvim'

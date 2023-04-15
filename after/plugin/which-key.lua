@@ -71,6 +71,7 @@ wk.register({
   ["<leader>"] = {
     -- You can rename mappings here
     -- e.g. f = { name = "+file", ['n'] = "foo"}
+    a = { name = "+harpoon" },
     b = { name = "+buffer" },
     c = { name = "+code" },
     d = { name = "+debug" },

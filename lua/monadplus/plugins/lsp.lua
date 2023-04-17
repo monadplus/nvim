@@ -155,6 +155,7 @@ ht.setup {
     tags = {
       enable = vim.fn.executable('fast-tags') == 1,
       package_events = { 'BufWritePost' },
+      filetypes = { 'haskell' },
     },
   },
   hls = {
@@ -165,11 +166,10 @@ ht.setup {
         { noremap = true, silent = true, desc = "Run code lens" })
       vim.keymap.set('n', '<space>mh', ht.hoogle.hoogle_signature,
         { noremap = true, silent = true, desc = "Hoogle" })
-      -- TODO: read haskell-tools sources and create a method to search both.
-      vim.keymap.set('n', '<leader>mc', ht.project.open_package_cabal,
-        { noremap = true, silent = true, desc = "Open <project>.cabal" })
-      vim.keymap.set('n', '<leader>mC', ht.project.open_package_yaml,
-        { noremap = true, silent = true, desc = "Open stack.yaml" })
+      vim.keymap.set('n', '<leader>mc', ht.project.open_project_file,
+        { noremap = true, silent = true, desc = "Open *.cabal/stack.yaml" })
+      vim.keymap.set('n', '<leader>mC', ht.project.open_package_cabal,
+        { noremap = true, silent = true, desc = "Open *.cabal" })
       vim.keymap.set('n', '<leader>mt', function()
         ht.repl.toggle(vim.api.nvim_buf_get_name(0))
       end, { noremap = true, silent = true, desc = "Repl: buffer" })
@@ -184,6 +184,10 @@ ht.setup {
     settings = {
       haskell = {
         formattingProvider = 'ormolu',
+        cabalFormattingProvider = 'cabalfmt',
+        maxCompletions = 40,
+        -- typecheck the entire project on initial load.
+        checkProject = true,
         plugin = {
           class = { -- missing class methods
             codeLensOn = false,

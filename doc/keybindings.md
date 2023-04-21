@@ -169,7 +169,10 @@ Normal:
 - `<leader>ma`: Hover code actions
 - `<leader>mc`: Open *.cabal
 - `<leader>mC`: Open stack.yaml
-- `<leader>mh`: Local hoogle word under cursor. Also works on `_` to search for possible candidates.
+- `<leader>mh`: Telescope hoogle
+  - `<CR>`: entry to clipboard
+  - `<C-b>`: open in browser
+- `<leader>mH`: Telescope hoogle under cursor
   - `<CR>`: entry to clipboard
   - `<C-b>`: open in browser
   - `<C-r>`: replace word under cursor

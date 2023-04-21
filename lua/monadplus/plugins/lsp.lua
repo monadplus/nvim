@@ -164,8 +164,8 @@ ht.setup {
 
       vim.keymap.set('n', '<space>ma', vim.lsp.codelens.run,
         { noremap = true, silent = true, desc = "Run code lens" })
-      vim.keymap.set('n', '<space>mh', ht.hoogle.hoogle_signature,
-        { noremap = true, silent = true, desc = "Hoogle" })
+      vim.keymap.set('n', '<space>mH', ht.hoogle.hoogle_signature,
+        { noremap = true, silent = true, desc = "Hoogle under cursor" })
       vim.keymap.set('n', '<leader>mc', ht.project.open_project_file,
         { noremap = true, silent = true, desc = "Open *.cabal/stack.yaml" })
       vim.keymap.set('n', '<leader>mC', ht.project.open_package_cabal,

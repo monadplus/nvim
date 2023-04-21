@@ -73,8 +73,7 @@ telescope.setup {
 -- TODO: conditionally execute with `pcall`
 telescope.load_extension('fzf')
 telescope.load_extension('smart_history')
--- Not very useful
--- telescope.load_extension('ht') -- https://github.com/mrcjkb/haskell-tools.nvim#telescope-extension
+telescope.load_extension('hoogle')
 
 -- Keymaps
 local builtins = require('telescope.builtin')
@@ -128,3 +127,6 @@ if ok3 then
   vim.keymap.set('n', '<leader>ff', telescope.extensions.harpoon.marks,
     { silent = true, noremap = true, desc = "Harpoon" })
 end
+
+vim.keymap.set('n', '<leader>mh', telescope.extensions.hoogle.hoogle,
+  { silent = true, noremap = true, desc = "Hoogle" })

@@ -53,4 +53,4 @@ opt.spelllang = 'en_us'
 
 -- https://github.com/nvim-orgmode/orgmode#links-are-not-concealed
 opt.conceallevel = 2
-opt.concealcursor = 'vc'
+opt.concealcursor = 'c'

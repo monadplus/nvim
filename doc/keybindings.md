@@ -2,6 +2,28 @@
 
 > Not all bindings are listed here. I recommend checking [what plugins are installed](./lua/monadplus/plugins.lua), and going to each specific plugin configuration file. Usually they share the same name as the plugin, e.g. [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) is configured at [telescope.lua](./lua/monadplus/plugins/telescope.lua).
 
+## Vonr/align.nvim
+
+In select mode:
+- `aa`: align 1 char
+- `as`: align 2 char
+- `aw`: align word
+- `ar`: align lua pattern
+
+## junegunn/vim-easy-align
+
+- `ga`: EasyAlign
+    - Example: `gaip=` -> inner paragraph, align around '='
+    - Visual also works!
+
+- `gaip`: inner paragraph
+    - `=`: around 1st occurrences
+    - `2=`: around 2st occurrences
+    - `*=`: around all occurrences
+    - `<enter>`: Switching betweeen left/right/center alignment modes
+- `gaip<space>` for align around whitespaces
+- `gaip,` comma
+
 ## ThePrimeagen/harpoon
 
 - `<leader>aa`: add file to harpoon

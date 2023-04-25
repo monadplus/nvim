@@ -4,6 +4,7 @@ local function save_and_exec()
     :silent! write
     :luafile %
   ]]
+  print('File reloaded!')
 end
 
 vim.keymap.set('n', '<leader>cx', save_and_exec, { silent = true, noremap = true, desc = "Exec Lua" })

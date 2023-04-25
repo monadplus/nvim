@@ -121,6 +121,15 @@ return require('packer').startup(function(use)
       'nvim-lua/plenary.nvim',
     }
   }
+  use 'Vonr/align.nvim'
+  use { 'junegunn/vim-easy-align',
+    run = function()
+      vim.cmd [[
+        xmap ga <Plug>(EasyAlign)
+        nmap ga <Plug>(EasyAlign)
+      ]]
+    end
+  }
 
   -- Themes
   use 'Mofiqul/dracula.nvim'

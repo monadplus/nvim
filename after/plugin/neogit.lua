@@ -16,7 +16,7 @@ neogit.setup {
   },
 }
 
--- vim.keymap.set('n', '<Leader>gg', neogit.open, { silent = true, noremap = true, desc = "Status" })
+vim.keymap.set('n', '<Leader>gG', neogit.open, { silent = true, noremap = true, desc = "Status (neogit)" })
 -- vim.keymap.set('n', '<Leader>gc', function() neogit.open { "commit" } end,
 --   { silent = true, noremap = true, desc = "Commit" })
 vim.keymap.set('n', '<Leader>gv', '<cmd>DiffviewOpen<cr>', { silent = true, noremap = true, desc = "Diff" })

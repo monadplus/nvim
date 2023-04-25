@@ -126,12 +126,6 @@ return require('packer').startup(function(use)
   use 'Mofiqul/dracula.nvim'
 
   -- Fancy
-  use {
-    'iamcco/markdown-preview.nvim',
-    run = "cd app && npm install",
-    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
-    ft = { "markdown" },
-  }
   use 'RRethy/vim-illuminate' -- Highlight current word
   use 'karb94/neoscroll.nvim' -- Smooth <C-d>, <C-u>, ...
   use 'folke/twilight.nvim'   -- dim inactive portions of code

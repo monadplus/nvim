@@ -11,3 +11,9 @@ vim.keymap.set('x', 'aw', function() align.align_to_string(false, true, true) en
   { silent = true, noremap = true, desc = "Align (word)" })
 vim.keymap.set('x', 'ar', function() align.align_to_string(true, true, true) end,
   { silent = true, noremap = true, desc = "Align (pattern)" })
+
+-- FIXME: this should be loaded by packer 'config', but doesn't work.
+vim.cmd [[
+  xmap ga <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
+]]

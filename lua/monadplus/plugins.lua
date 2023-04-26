@@ -123,7 +123,8 @@ return require('packer').startup(function(use)
   }
   use 'Vonr/align.nvim'
   use { 'junegunn/vim-easy-align',
-    run = function()
+    -- FIXME: not loading
+    config = function()
       vim.cmd [[
         xmap ga <Plug>(EasyAlign)
         nmap ga <Plug>(EasyAlign)

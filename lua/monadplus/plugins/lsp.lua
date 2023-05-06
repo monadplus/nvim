@@ -79,12 +79,14 @@ local lsp_on_attach = function(client, bufnr)
   if pcall(require, "trouble") then
     vim.keymap.set('n', 'gr', "<cmd>TroubleToggle lsp_references<cr>",
       { noremap = true, silent = true, buffer = bufnr, desc = "References" })
+    vim.keymap.set('n', 'gi', "<cmd>TroubleToggle lsp_implementations<cr>",
+      { noremap = true, silent = true, buffer = bufnr, desc = "Implementation" })
   else
     vim.keymap.set('n', 'gr', vim.lsp.buf.references,
       { noremap = true, silent = true, buffer = bufnr, desc = "References" })
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation,
+      { noremap = true, silent = true, buffer = bufnr, desc = "Implementation" })
   end
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation,
-    { noremap = true, silent = true, buffer = bufnr, desc = "Implementation" })
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, { noremap = true, silent = true, buffer = bufnr, desc = "Hover" })
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help,
     { noremap = true, silent = true, buffer = bufnr, desc = "Help" })

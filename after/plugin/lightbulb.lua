@@ -17,7 +17,7 @@ lightbulb.setup {
   }
 }
 
-local icon = " "
+local icon = "󰛩"
 local hl = 'LightBulbSign'
 vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 

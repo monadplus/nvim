@@ -48,7 +48,7 @@ return require('packer').startup(function(use)
   use 'MrcJkb/haskell-tools.nvim'
   use {
     'folke/trouble.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
+    requires = 'nvim-tree/nvim-web-devicons',
   }
   use 'hkupty/iron.nvim'
   -- use 'kosayoda/nvim-lightbulb' -- Disabled: performance cost > usefulness
@@ -75,14 +75,14 @@ return require('packer').startup(function(use)
   use {
     'nvim-lualine/lualine.nvim',
     requires = {
-      { 'kyazdani42/nvim-web-devicons', opt = true },
+      { 'nvim-tree/nvim-web-devicons', opt = true },
       { 'arkav/lualine-lsp-progress' },
     }
   }
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
-      'kyazdani42/nvim-web-devicons',
+      'nvim-tree/nvim-web-devicons',
     },
     -- tag = 'nightly'
   }

@@ -23,6 +23,7 @@ if loaded then
 end
 vim.keymap.set('n', '<leader>bD', "<cmd>bd!<cr>", { silent = true, noremap = true, desc = "Delete (force) buffer" })
 vim.keymap.set('n', '<leader>bc', "<cmd>%bd<cr><cmd>Dashboard<cr>", { silent = true, noremap = true, desc = "Clear all buffer" })
+vim.keymap.set('n', '<leader>w', "<cmd>w<cr>", { silent = true, noremap = true, desc = "Write buffer" })
 vim.keymap.set('n', '<leader>bw', "<cmd>w<cr>", { silent = true, noremap = true, desc = "Write" })
 vim.keymap.set('n', '<leader>bW', "<cmd>wa<cr>", { silent = true, noremap = true, desc = "Write (all)" })
 vim.keymap.set('n', '<leader>bq', "<cmd>wq<cr>", { silent = true, noremap = true, desc = "Write & quit" })

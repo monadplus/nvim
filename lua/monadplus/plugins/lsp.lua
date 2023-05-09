@@ -286,8 +286,6 @@ lsp_custom_settings.yamlls = {} -- schema validation must be configured here
 lsp_custom_settings.ccls = {} -- schema validation must be configured here
 --More at https://github.com/MaskRay/ccls/wiki/Project-Setup
 
--- php
-lsp_custom_settings.intelephense = {}
 
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 

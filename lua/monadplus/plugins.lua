@@ -86,6 +86,7 @@ return require('packer').startup(function(use)
     },
     -- tag = 'nightly'
   }
+  use 'stevearc/oil.nvim'
   use {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.1',

@@ -17,7 +17,8 @@ git clone git@github.com:monadplus/nvim.git "$HOME/.config/nvim" # or "$XDG_CONF
 Finally, install all plugins using [Packer](https://github.com/wbthomason/packer.nvim):
 
 ```bash
-# Errors may appear, ignore them
+# Errors may appear, ignore them.
+# Sometimes it doesn't close, you can interrupt it.
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
 
@@ -33,6 +34,12 @@ And update treesitter parsers (see [treesitter.lua](/lua/monadplus/plugins/trees
 ```bash
 # Stored at '/home/arnau/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser'
 :TSUpdate
+```
+
+We'll need to create this path for our telescope history:
+
+```bash
+mkdir -p ~/.local/share/nvim/databases/
 ```
 
 ### Dependencies

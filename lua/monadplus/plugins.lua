@@ -45,7 +45,15 @@ return require('packer').startup(function(use)
   -- LSP
   use 'neovim/nvim-lspconfig'
   use 'simrat39/rust-tools.nvim'
-  use 'MrcJkb/haskell-tools.nvim'
+  -- TODO: switch to version 2.x.x
+  use {
+    'mrcjkb/haskell-tools.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+    },
+    branch = '1.x.x', -- Avoid breaking changes of '2.x.x'
+  }
   use {
     'folke/trouble.nvim',
     requires = 'nvim-tree/nvim-web-devicons',

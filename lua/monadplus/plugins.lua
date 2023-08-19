@@ -33,7 +33,7 @@ return require('packer').startup(function(use)
     'lewis6991/gitsigns.nvim',
     -- tag = 'release'
   }
-  use 'kdheepak/lazygit.nvim'
+  -- use 'kdheepak/lazygit.nvim' -- Using neogit
 
   -- Treesitter
   use {
@@ -97,7 +97,7 @@ return require('packer').startup(function(use)
   use 'stevearc/oil.nvim'
   use {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.1',
+    tag = '0.1.2',
     requires = {
       'nvim-lua/plenary.nvim',
     }

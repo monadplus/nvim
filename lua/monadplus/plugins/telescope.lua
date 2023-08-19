@@ -35,6 +35,37 @@ end
 -- :help telescope.setup()
 telescope.setup {
   defaults = {
+    layout_strategy = 'flex',
+    layout_config = {
+      bottom_pane = {
+        height = 25,
+        preview_cutoff = 200,
+        prompt_position = "bottom"
+      },
+      center = {
+        height = 0.4,
+        preview_cutoff = 40,
+        prompt_position = "top",
+        width = 0.5
+      },
+      cursor = {
+        height = 0.9,
+        preview_cutoff = 40,
+        width = 0.8
+      },
+      horizontal = {
+        height = 0.95,
+        preview_cutoff = 200,
+        prompt_position = "bottom",
+        width = 0.95,
+      },
+      vertical = {
+        height = 0.95,
+        preview_cutoff = 40,
+        prompt_position = "bottom",
+        width = 0.95
+      }
+    },
     mappings = {
       i = {
         ["<esc>"] = actions.close,
@@ -56,6 +87,18 @@ telescope.setup {
   pickers = {
     find_files = {
       find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
+    },
+    buffers = {
+      layout_strategy = 'bottom_pane',
+    },
+    marks = {
+      layout_strategy = 'bottom_pane',
+    },
+    colorscheme = {
+      theme = 'dropdown',
+    },
+    command_history = {
+      layout_strategy = 'bottom_pane',
     },
   },
   extensions = {
@@ -83,9 +126,10 @@ vim.keymap.set('n', '<leader>*', builtins.grep_string, { silent = true, noremap 
 vim.keymap.set('n', '<leader>,', builtins.buffers, { silent = true, noremap = true, desc = "Buffers" })
 vim.keymap.set('n', '<leader>fk', builtins.keymaps, { silent = true, noremap = true, desc = "Keymaps" })
 vim.keymap.set('n', '<leader>fh', builtins.help_tags, { silent = true, noremap = true, desc = "Help" })
-vim.keymap.set('n', '<leader>fc', builtins.commands, { silent = true, noremap = true, desc = "Commands" })
+vim.keymap.set('n', '<leader>fc', builtins.command_history, { silent = true, noremap = true, desc = "Commands history" })
 vim.keymap.set('n', '<leader>fC', builtins.colorscheme, { silent = true, noremap = true, desc = "Colorschemes" })
 vim.keymap.set('n', '<leader>fr', builtins.oldfiles, { silent = true, noremap = true, desc = "Recent" })
+vim.keymap.set('n', '<leader>fm', builtins.marks, { silent = true, noremap = true, desc = "marks" })
 
 local ok0 = pcall(require, "notify")
 if ok0 then
@@ -110,9 +154,9 @@ end
 local manix_loaded, telescope_manix = pcall(require, "telescope-manix")
 if manix_loaded then
   telescope.load_extension('manix')
-  vim.keymap.set('n', '<leader>fm', telescope_manix.search,
+  vim.keymap.set('n', '<leader>fn', telescope_manix.search,
     { silent = true, noremap = true, desc = "Nix (manix)" })
-  vim.keymap.set('n', '<leader>fM', function()
+  vim.keymap.set('n', '<leader>fN', function()
       telescope_manix.search {
         manix_args = {}, -- for example: `{'--source', 'nixpkgs_doc', '--source', 'nixpkgs_comments'}`
         cword = true

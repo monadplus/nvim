@@ -22,7 +22,7 @@ diffview.setup({
   },
   view = {
     -- Configure the layout and behavior of different types of views.
-    -- Available layouts: 
+    -- Available layouts:
     --  'diff1_plain'
     --    |'diff2_horizontal'
     --    |'diff2_vertical'
@@ -38,7 +38,7 @@ diffview.setup({
     merge_tool = {
       -- Config for conflicted files in diff views during a merge or rebase.
       layout = "diff4_mixed",
-      disable_diagnostics = true,   -- Temporarily disable diagnostics for conflict buffers while in the view.
+      disable_diagnostics = true, -- Temporarily disable diagnostics for conflict buffers while in the view.
     },
     file_history = {
       -- Config for changed files in file history views.
@@ -46,12 +46,12 @@ diffview.setup({
     },
   },
   file_panel = {
-    listing_style = "tree",             -- One of 'list' or 'tree'
-    tree_options = {                    -- Only applies when listing_style is 'tree'
-      flatten_dirs = true,              -- Flatten dirs that only contain one single dir
-      folder_statuses = "only_folded",  -- One of 'never', 'only_folded' or 'always'.
+    listing_style = "tree",            -- One of 'list' or 'tree'
+    tree_options = {                   -- Only applies when listing_style is 'tree'
+      flatten_dirs = true,             -- Flatten dirs that only contain one single dir
+      folder_statuses = "only_folded", -- One of 'never', 'only_folded' or 'always'.
     },
-    win_config = {                      -- See ':h diffview-config-win_config'
+    win_config = {                     -- See ':h diffview-config-win_config'
       position = "left",
       width = 35,
       win_opts = {}
@@ -68,41 +68,41 @@ diffview.setup({
         },
       },
     },
-    win_config = {    -- See ':h diffview-config-win_config'
+    win_config = { -- See ':h diffview-config-win_config'
       position = "bottom",
       height = 16,
       win_opts = {}
     },
   },
   commit_log_panel = {
-    win_config = {   -- See ':h diffview-config-win_config'
+    win_config = { -- See ':h diffview-config-win_config'
       win_opts = {},
     }
   },
-  default_args = {    -- Default args prepended to the arg-list for the listed commands
+  default_args = { -- Default args prepended to the arg-list for the listed commands
     DiffviewOpen = {},
     DiffviewFileHistory = {},
   },
-  hooks = {},         -- See ':h diffview-config-hooks'
+  hooks = {},                 -- See ':h diffview-config-hooks'
   keymaps = {
     disable_defaults = false, -- Disable the default keymaps
     view = {
       -- The `view` bindings are active in the diff buffers
-      ["<tab>"]      = actions.select_next_entry,         -- Open the diff for the next file
-      ["<s-tab>"]    = actions.select_prev_entry,         -- Open the diff for the previous file
-      ["gf"]         = actions.goto_file,                 -- Open the file in a new split in the previous tabpage
-      ["<C-w><C-f>"] = actions.goto_file_split,           -- Open the file in a new split
-      ["<C-w>gf"]    = actions.goto_file_tab,             -- Open the file in a new tabpage
-      ["<leader>e"]  = actions.focus_files,               -- Bring focus to the file panel
-      ["<leader>b"]  = actions.toggle_files,              -- Toggle the file panel.
-      ["g<C-x>"]     = actions.cycle_layout,              -- Cycle through available layouts.
-      ["[x"]         = actions.prev_conflict,             -- In the merge_tool: jump to the previous conflict
-      ["]x"]         = actions.next_conflict,             -- In the merge_tool: jump to the next conflict
-      ["<leader>co"] = actions.conflict_choose("ours"),   -- Choose the OURS version of a conflict
-      ["<leader>ct"] = actions.conflict_choose("theirs"), -- Choose the THEIRS version of a conflict
-      ["<leader>cb"] = actions.conflict_choose("base"),   -- Choose the BASE version of a conflict
-      ["<leader>ca"] = actions.conflict_choose("all"),    -- Choose all the versions of a conflict
-      ["dx"]         = actions.conflict_choose("none"),   -- Delete the conflict region
+      ["<tab>"]      = actions.select_next_entry,       -- Open the diff for the next file
+      ["<s-tab>"]    = actions.select_prev_entry,       -- Open the diff for the previous file
+      ["gf"]         = actions.goto_file,               -- Open the file in a new split in the previous tabpage
+      ["<C-w><C-f>"] = actions.goto_file_split,         -- Open the file in a new split
+      ["<C-w>gf"]    = actions.goto_file_tab,           -- Open the file in a new tabpage
+      ["e"]          = actions.focus_files,             -- Bring focus to the file panel
+      ["b"]          = actions.toggle_files,            -- Toggle the file panel.
+      ["g<C-x>"]     = actions.cycle_layout,            -- Cycle through available layouts.
+      ["[x"]         = actions.prev_conflict,           -- In the merge_tool: jump to the previous conflict
+      ["]x"]         = actions.next_conflict,           -- In the merge_tool: jump to the next conflict
+      ["co"]         = actions.conflict_choose("ours"), -- Choose the OURS version of a conflict
+      ["ct"]         = actions.conflict_choose("theirs"), -- Choose the THEIRS version of a conflict
+      ["cb"]         = actions.conflict_choose("base"), -- Choose the BASE version of a conflict
+      ["ca"]         = actions.conflict_choose("all"),  -- Choose all the versions of a conflict
+      ["dx"]         = actions.conflict_choose("none"), -- Delete the conflict region
     },
     diff1 = { --[[ Mappings in single window diff layouts ]] },
     diff2 = { --[[ Mappings in 2-way diff layouts ]] },
@@ -122,7 +122,7 @@ diffview.setup({
       ["<down>"]        = false,
       ["k"]             = actions.prev_entry,
       ["<up>"]          = false,
-      ["<cr>"]          = actions.select_entry,       -- Open the diff for the selected entry.
+      ["<cr>"]          = actions.select_entry, -- Open the diff for the selected entry.
       ["o"]             = actions.select_entry,
       ["<2-LeftMouse>"] = false,
       ["-"]             = actions.toggle_stage_entry, -- Stage / unstage the selected entry.
@@ -130,18 +130,18 @@ diffview.setup({
       ["U"]             = actions.unstage_all,        -- Unstage all entries.
       ["X"]             = actions.restore_entry,      -- Restore entry to the state on the left side.
       ["L"]             = actions.open_commit_log,    -- Open the commit log panel.
-      ["<c-b>"]         = actions.scroll_view(-0.25), -- Scroll the view up
-      ["<c-f>"]         = actions.scroll_view(0.25),  -- Scroll the view down
+      ["<c-u>"]         = actions.scroll_view(-0.25), -- Scroll the view up
+      ["<c-d>"]         = actions.scroll_view(0.25),  -- Scroll the view down
       ["<tab>"]         = actions.select_next_entry,
       ["<s-tab>"]       = actions.select_prev_entry,
       ["gf"]            = actions.goto_file,
       ["<C-w><C-f>"]    = actions.goto_file_split,
       ["<C-w>gf"]       = actions.goto_file_tab,
-      ["i"]             = actions.listing_style,        -- Toggle between 'list' and 'tree' views
-      ["f"]             = actions.toggle_flatten_dirs,  -- Flatten empty subdirectories in tree listing style.
-      ["R"]             = actions.refresh_files,        -- Update stats and entries in the file list.
-      ["<leader>e"]     = actions.focus_files,
-      ["<leader>b"]     = actions.toggle_files,
+      ["i"]             = actions.listing_style,       -- Toggle between 'list' and 'tree' views
+      ["f"]             = actions.toggle_flatten_dirs, -- Flatten empty subdirectories in tree listing style.
+      ["R"]             = actions.refresh_files,       -- Update stats and entries in the file list.
+      ["e"]             = actions.focus_files,
+      ["b"]             = actions.toggle_files,
       ["g<C-x>"]        = actions.cycle_layout,
       ["[x"]            = actions.prev_conflict,
       ["]x"]            = actions.next_conflict,
@@ -168,7 +168,7 @@ diffview.setup({
       ["<C-w><C-f>"]    = actions.goto_file_split,
       ["<C-w>gf"]       = actions.goto_file_tab,
       ["<leader>e"]     = actions.focus_files,
-      ["<leader>b"]     = actions.toggle_files,
+      ["b"]             = actions.toggle_files,
       ["g<C-x>"]        = actions.cycle_layout,
     },
     option_panel = {
@@ -180,5 +180,7 @@ diffview.setup({
 
 vim.keymap.set('n', '<Leader>vv', '<cmd>DiffviewOpen<cr>', { silent = true, noremap = true, desc = "Open" })
 vim.keymap.set('n', '<Leader>vc', '<cmd>DiffviewClose<cr>', { silent = true, noremap = true, desc = "Close" })
-vim.keymap.set('n', '<Leader>vh', '<cmd>DiffviewFileHistory %<cr>', { silent = true, noremap = true, desc = "File history" })
-vim.keymap.set({'v', 'x'}, '<Leader>v', "<cmd>:'<,'>DiffviewFileHistory<cr>", { silent = true, noremap = true, desc = "Line history" })
+vim.keymap.set('n', '<Leader>vh', '<cmd>DiffviewFileHistory %<cr>',
+  { silent = true, noremap = true, desc = "File history" })
+vim.keymap.set({ 'v', 'x' }, '<Leader>v', "<cmd>:'<,'>DiffviewFileHistory<cr>",
+  { silent = true, noremap = true, desc = "Line history" })

@@ -163,6 +163,14 @@ return require('packer').startup(function(use)
     requires = 'kevinhwang91/promise-async'
   }
   use 'famiu/bufdelete.nvim'
+  use {
+    'dhruvmanila/browser-bookmarks.nvim',
+    tag = 'v3.1.0',
+    requires = {
+      'kkharji/sqlite.lua',
+      'nvim-telescope/telescope.nvim',
+    }
+  }
 
   -- Neovim + Lua development
   use 'folke/neodev.nvim'

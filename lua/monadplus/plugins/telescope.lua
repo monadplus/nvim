@@ -87,6 +87,7 @@ telescope.setup {
   pickers = {
     find_files = {
       find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
+      layout_strategy = 'bottom_pane',
     },
     buffers = {
       layout_strategy = 'bottom_pane',

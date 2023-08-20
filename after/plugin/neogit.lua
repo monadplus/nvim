@@ -3,10 +3,8 @@ if not ok then
   return
 end
 
--- https://github.com/TimUntersberger/neogit#configuration
 neogit.setup {
   disable_hint = true,
-  disable_context_highlighting = false,
   disable_commit_confirmation = true,
   disable_insert_on_commit = false,
   use_magit_keybindings = true,

@@ -21,10 +21,6 @@ dashboard.custom_center = {
     desc = 'Find  File                              ',
     action = 'Telescope find_files',
     shortcut = 'SPC f f' },
-  { icon = '  ',
-    desc = 'File Browser                            ',
-    action = 'Telescope file_browser',
-    shortcut = 'SPC f e' },
   { icon = '  ',
     desc = 'New File                                ',
     action = 'DashboardNewFile',
@@ -32,10 +28,6 @@ dashboard.custom_center = {
   { icon = '  ',
     desc = 'Update Plugins                          ',
     action = 'PackerUpdate',
-    shortcut = '       ' },
-  { icon = '  ',
-    desc = 'Exit                                    ',
-    action = 'exit',
     shortcut = '       ' },
 }
 

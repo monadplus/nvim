@@ -11,6 +11,8 @@ table.insert(vimgrep_arguments, "--hidden")
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!.git/*")
 table.insert(vimgrep_arguments, "--trim")
+table.insert(vimgrep_arguments, "--sort")
+table.insert(vimgrep_arguments, "path")
 
 -- Disable highlighting for certain files
 local previewers = require('telescope.previewers')
@@ -86,7 +88,7 @@ telescope.setup {
   },
   pickers = {
     find_files = {
-      find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
+      find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*", "--sort", "path" },
       layout_strategy = 'bottom_pane',
     },
     buffers = {

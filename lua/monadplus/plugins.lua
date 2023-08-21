@@ -155,7 +155,7 @@ return require('packer').startup(function(use)
   }
 
   -- Utils
-  use 'rmagatti/auto-session'
+  -- use 'rmagatti/auto-session' -- NOTE: it does error from time to time
   use 'nvim-orgmode/orgmode'
   use 'folke/which-key.nvim'
   use {

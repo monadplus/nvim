@@ -141,8 +141,8 @@ lsp_custom_settings.lua_ls = {
 }
 
 -- See https://github.com/MrcJkb/haskell-tools.nvim#advanced-configuration
-local ht = require('haskell-tools')
-ht.setup {
+-- local ht = require('haskell-tools')
+vim.g.haskell_tools = {
   tools = {
     codeLens = {
       autoRefresh = false, -- Disable all code lens
@@ -151,8 +151,11 @@ ht.setup {
       mode = 'telescope-web', -- autor, telescope-local, telescope-web, browser
     },
     hover = {
-      disable = true,
+      enable = false,
       auto_focus = false,
+    },
+    definition = {
+      hoogle_signature_fallback = true,
     },
     tags = {
       enable = vim.fn.executable('fast-tags') == 1,
@@ -161,7 +164,7 @@ ht.setup {
     },
   },
   hls = {
-    on_attach = function(client, bufnr)
+    on_attach = function(client, bufnr, ht)
       lsp_on_attach(client, bufnr)
 
       vim.keymap.set('n', '<space>ma', vim.lsp.codelens.run,
@@ -179,18 +182,29 @@ ht.setup {
         { noremap = true, silent = true, desc = "Repl: project" })
       vim.keymap.set('n', '<leader>mq', ht.repl.quit,
         { noremap = true, silent = true, desc = "Repl: quit" })
+      vim.keymap.set('n', '<leader>mi', ht.repl.cword_info,
+        { noremap = true, silent = true, desc = "Repl: info (cword)" })
       vim.keymap.set('n', '<leader>ml', function()
         ht.repl.load_file(vim.api.nvim_buf_get_name(0))
       end, { noremap = true, silent = true, desc = "Load" })
     end,
-    settings = {
+    default_settings = {
       haskell = {
         formattingProvider = 'ormolu',
         cabalFormattingProvider = 'cabalfmt',
         maxCompletions = 40,
         -- typecheck the entire project on initial load.
         checkProject = true,
+        checkParents = 'checkOnSave',
         plugin = {
+          hlint = { -- hlint
+            codeActionsOn = true,
+            diagnosticsOn = true,
+          },
+          pragmas = { -- autocomplete pragmas
+            codeActionsOn = true,
+            completionOn = true,
+          },
           class = { -- missing class methods
             codeLensOn = false,
           },
@@ -204,7 +218,7 @@ ht.setup {
             codeLensOn = false,
           },
           moduleName = { -- fix module names
-            globalOn = false,
+            globalOn = true,
           },
           eval = { -- evaluate code snippets
             globalOn = false,

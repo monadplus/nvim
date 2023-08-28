@@ -1,6 +1,6 @@
 -- disable netrw; recommended by nvim-tree.lua
 vim.g.loaded = 1
--- vim.g.loaded_netrw = 1 -- Disabling this makes 'gx' not working
+vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 local opt = vim.opt

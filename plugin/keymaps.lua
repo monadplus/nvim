@@ -13,7 +13,12 @@ vim.keymap.set('n', '<leader>ts', function()
   vim.o.spell = not (vim.o.spell)
 end, { silent = true, noremap = true, desc = "Spell" })
 
-vim.keymap.set('n', '<leader>bt', trim_trailing_whitespaces, { silent = true, noremap = true, desc = "Remove trailing ws" })
+vim.keymap.set('n', '<leader>bt', trim_trailing_whitespaces,
+  { silent = true, noremap = true, desc = "Remove trailing ws" })
+
+vim.keymap.set('n', 'gx', function()
+  open(vim.fn.expand("<cfile>"))
+end, { silent = true, noremap = true, desc = "Open" })
 
 vim.keymap.set('n', '<leader>`', "<cmd>b#<cr>", { silent = true, noremap = true, desc = "Previous buffer" })
 
@@ -22,9 +27,11 @@ if loaded then
   vim.keymap.set('n', '<leader>bd', "<cmd>:Bdelete<cr>", { silent = true, noremap = true, desc = "Delete buffer" })
 end
 vim.keymap.set('n', '<leader>bD', "<cmd>bd!<cr>", { silent = true, noremap = true, desc = "Delete (force) buffer" })
-vim.keymap.set('n', '<leader>bc', "<cmd>%bd<cr><cmd>Dashboard<cr>", { silent = true, noremap = true, desc = "Clear all buffer" })
+vim.keymap.set('n', '<leader>bc', "<cmd>%bd<cr><cmd>Dashboard<cr>",
+  { silent = true, noremap = true, desc = "Clear all buffer" })
 vim.keymap.set('n', '<leader>w', "<cmd>w<cr>", { silent = true, noremap = true, desc = "Write buffer" })
 vim.keymap.set('n', '<leader>bw', "<cmd>w<cr>", { silent = true, noremap = true, desc = "Write" })
 vim.keymap.set('n', '<leader>bW', "<cmd>wa<cr>", { silent = true, noremap = true, desc = "Write (all)" })
 vim.keymap.set('n', '<leader>bq', "<cmd>wq<cr>", { silent = true, noremap = true, desc = "Write & quit" })
+vim.keymap.set('n', '<leader>bQ', "<cmd>qa<cr>", { silent = true, noremap = true, desc = "Quit (all)" })
 vim.keymap.set('n', '<leader>bQ', "<cmd>qa<cr>", { silent = true, noremap = true, desc = "Quit (all)" })

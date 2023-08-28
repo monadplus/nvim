@@ -85,6 +85,8 @@ nvim_tree.setup({
   git = {
     ignore = false,
   },
+  -- disable_netrw = true,
+  -- hijack_netrw = true,
 })
 
 local api = require('nvim-tree.api')

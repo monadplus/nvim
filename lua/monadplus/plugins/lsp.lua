@@ -261,9 +261,19 @@ rt.setup({
     end,
     settings = {
       ["rust-analyzer"] = {
+        imports = {
+          granularity = {
+            group = "crate",
+          },
+          prefix = "crate",
+        },
         checkOnSave = {
-          -- Disable to speed up rust-analyzer on long project (but say goodbye to some features..)
           enable = true,
+        },
+        diagnostics = {
+          experimental = {
+            enable = true
+          },
         },
         procMacro = {
           enable = true

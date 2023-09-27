@@ -107,6 +107,8 @@ return require('packer').startup(function(use)
   use 'lukas-reineke/indent-blankline.nvim'
   use 'MrcJkb/telescope-manix'
   use 'luc-tielen/telescope_hoogle'
+  use 'sindrets/winshift.nvim'
+  use 'https://gitlab.com/yorickpeterse/nvim-window.git'
 
   -- Text editing
   use {

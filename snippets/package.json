@@ -1,0 +1,34 @@
+{
+    "name": "my-snippets",
+    "engines": {
+        "vscode": "^1.11.0"
+    },
+    "contributes": {
+        "snippets": [
+            {
+                "language": "rust",
+                "path": "./rust.json"
+            },
+            {
+                "language": "lua",
+                "path": "./lua.json"
+            },
+            {
+                "language": "nix",
+                "path": "./nix.json"
+            },
+            {
+                "language": "haskell",
+                "path": "./haskell.json"
+            },
+            {
+                "language": ["markdown", "rmd"],
+                "path": "./markdown.json"
+            },
+            {
+                "language": "sql",
+                "path": "./sql.json"
+            }
+        ]
+    }
+}

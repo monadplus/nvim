@@ -23,7 +23,15 @@ cmp.setup {
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.abort(),
+    ['<C-e>'] = cmp.mapping(function(fallback)
+      if luasnip.choice_active() then
+        luasnip.change_choice(1)
+      elseif cmp.visible() then
+        cmp.abort()
+      else
+        fallback()
+      end
+    end),
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
@@ -47,6 +55,14 @@ cmp.setup {
       end
     end, { 'i', 's' }),
   }),
+
+-- vim.keymap.set({"i", "s"}, "<C-E>", function()
+-- 	if ls.choice_active() then
+-- 		ls.change_choice(1)
+-- 	end
+-- end, {silent = true})
+
+
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
@@ -82,6 +98,4 @@ if ok then
   )
 end
 
-
--- Load 'rafamadriz/friendly-snippets'
-require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load({ paths = { './snippets' }})

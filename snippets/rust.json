@@ -1,0 +1,330 @@
+{
+  "clippy_allow": {
+    "prefix": "allow",
+    "body": [
+      "#![allow(${1})]"
+    ],
+    "description": "#![allow(…)]"
+  },
+  "clippy_deny": {
+    "prefix": "deny",
+    "body": [
+      "#![deny(${1})]"
+    ],
+    "description": "#![deny(…)]"
+  },
+  "clippy_warn": {
+    "prefix": "warn",
+    "body": [
+      "#![warn(${1})]"
+    ],
+    "description": "#![warn(…)]"
+  },
+  "macro_use": {
+    "prefix": "macro_use",
+    "body": [
+      "#[macro_use(${1})]"
+    ],
+    "description": "#[macro_use(…)]"
+  },
+  "repr": {
+    "prefix": "repr",
+    "body": [
+      "#[repr(${1})]"
+    ],
+    "description": "#[repr(…)]"
+  },
+  "cfg": {
+    "prefix": "cfg",
+    "body": [
+      "#[cfg(${1})]"
+    ],
+    "description": "#[cfg(…)]"
+  },
+  "println": {
+    "prefix": "print",
+    "body": [
+      "println!(\"{${1}}\", ${});"
+    ],
+    "description": "println!(…);"
+  },
+  "bench": {
+    "prefix": "bench",
+    "body": [
+      "#[bench]",
+      "fn ${1:name}(b: &mut test::Bencher) {",
+      "    ${2:b.iter(|| ${3:/* benchmark code */})}",
+      "}"
+    ],
+    "description": "#[bench]"
+  },
+  "const": {
+    "prefix": "const",
+    "body": [
+      "const ${1:CONST}: ${2:Type} = ${4:init};"
+    ],
+    "description": "const …: … = …;"
+  },
+  "derive": {
+    "prefix": "derive",
+    "body": [
+      "#[derive(${1})]"
+    ],
+    "description": "#[derive(…)]"
+  },
+  "else": {
+    "prefix": "else",
+    "body": [
+      "else {",
+      "    ${1:unimplemented!();}",
+      "}"
+    ],
+    "description": "else { … }"
+  },
+  "enum": {
+    "prefix": "enum",
+    "body": [
+      "#[derive(Debug)]",
+      "enum ${1:Name} {",
+      "    ${2:Variant1},",
+      "    ${3:Variant2},",
+      "}"
+    ],
+    "description": "enum … { … }"
+  },
+  "fn": {
+    "prefix": "fn",
+    "body": [
+      "${1|pub fn,fn|} ${2:name}(${3:arg}: ${4:Type}) -> ${5:RetType} {",
+      "    ${6:unimplemented!();}",
+      "}"
+    ],
+    "description": "fn …(…) { … }"
+  },
+  "for": {
+    "prefix": "for",
+    "body": [
+      "for ${1:pat} in ${2:expr} {",
+      "    ${3:unimplemented!();}",
+      "}"
+    ],
+    "description": "for … in … { … }"
+  },
+  "if": {
+    "prefix": "if",
+    "body": [
+      "if ${1:condition} {",
+      "    ${2:unimplemented!();}",
+      "}"
+    ],
+    "description": "if … { … }"
+  },
+  "if-let": {
+    "prefix": "iflet",
+    "body": [
+      "if let ${1:Some(pat)} = ${2:expr} {",
+      "    ${0:unimplemented!();}",
+      "}"
+    ],
+    "description": "if let … = … { … }"
+  },
+  "impl-trait": {
+    "prefix": "implt",
+    "body": [
+      "impl ${1:Trait} for ${2:Type} {",
+      "    $0",
+      "}"
+    ],
+    "description": "impl … for … { … }"
+  },
+  "impl-generic-trait": {
+    "prefix": "impltg",
+    "body": [
+      "impl<T> ${1:Trait} for ${2:Type}<T> {",
+      "    $0",
+      "}"
+    ],
+    "description": "impl<T> … for … { … }"
+  },
+  "impl": {
+    "prefix": "impl",
+    "body": [
+      "impl ${1:Type} {",
+      "    ${2:// add code here}",
+      "}"
+    ],
+    "description": "impl … { … }"
+  },
+  "let": {
+    "prefix": "let",
+    "body": [
+      "let ${1:pat} = ${2:expr};"
+    ],
+    "description": "let … = …;"
+  },
+  "loop": {
+    "prefix": "loop",
+    "body": [
+      "loop {",
+      "    ${2:unimplemented!();}",
+      "}"
+    ],
+    "description": "loop { … }"
+  },
+  "macro_rules": {
+    "prefix": "macro_rules",
+    "body": [
+      "macro_rules! ${1:name} {",
+      "    (${2}) => (${3})",
+      "}"
+    ],
+    "description": "macro_rules! … { … }"
+  },
+  "main": {
+    "prefix": "main",
+    "body": [
+      "fn main() {",
+      "    ${1:unimplemented!();}",
+      "}"
+    ],
+    "description": "fn main() { … }"
+  },
+  "tokio-main": {
+    "prefix": "maintokio",
+    "body": [
+      "#[tokio::main]",
+      "async fn main() {",
+      "    ${1:unimplemented!();}",
+      "}"
+    ],
+    "description": "async fn main() { … }"
+  },
+  "match": {
+    "prefix": "match",
+    "body": [
+      "match ${1:expr} {",
+      "}"
+    ],
+    "description": "match … { … }"
+  },
+  "mod-block": {
+    "prefix": "mod",
+    "body": [
+      "mod ${1:name} {",
+      "    ${2:// add code here}",
+      "}"
+    ],
+    "description": "mod … { … }"
+  },
+  "static": {
+    "prefix": "static",
+    "body": [
+      "static ${1:STATIC}: ${2:Type} = ${4:init};"
+    ],
+    "description": "static …: … = …;"
+  },
+  "lazy_static": {
+    "prefix": "lazystatic",
+    "body": [
+      "lazy_static! {",
+      "    static ref ${1:VARNAME}: ${2:Type} = {",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "lazy_static!"
+  },
+  "struct-tuple": {
+    "prefix": "structt",
+    "body": [
+      "struct ${1:Name}(${2:Type});"
+    ],
+    "description": "struct …(…);"
+  },
+  "struct-unit": {
+    "prefix": "structu",
+    "body": [
+      "struct ${1:Name};"
+    ],
+    "description": "struct …;"
+  },
+  "struct": {
+    "prefix": "struc",
+    "body": [
+      "#[derive(Debug)]",
+      "struct ${1:Name} {",
+      "    ${2:field}: ${3:Type}",
+      "}"
+    ],
+    "description": "struct … { … }"
+  },
+  "test-module": {
+    "prefix": "tmod",
+    "body": [
+      "#[cfg(test)]",
+      "mod tests {",
+      "    use super::*;",
+      "",
+      "    #[test]",
+      "    fn ${1}_test() {",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "#[test]"
+  },
+  "test": {
+    "prefix": "test",
+    "body": [
+      "#[test]",
+      "fn ${1:name}() {",
+      "    ${2:unimplemented!();}",
+      "}"
+    ],
+    "description": "#[test]"
+  },
+  "tokio-test": {
+    "prefix": "test",
+    "body": [
+      "#[tokio::test]",
+      "async fn ${1:name}() {",
+      "    ${2:unimplemented!();}",
+      "}"
+    ],
+    "description": "#[test]"
+  },
+  "trait": {
+    "prefix": "trait",
+    "body": [
+      "trait ${1:Name} {",
+      "    $0",
+      "}"
+    ],
+    "description": "trait … { … }"
+  },
+  "type": {
+    "prefix": "type",
+    "body": [
+      "type ${1:Alias} = ${2:Type};"
+    ],
+    "description": "type … = …;"
+  },
+  "while-let": {
+    "prefix": "whilelet",
+    "body": [
+      "while let ${1:Some(pat)} = ${2:expr} {",
+      "    $0",
+      "}"
+    ],
+    "description": "while let … = … { … }"
+  },
+  "while": {
+    "prefix": "whil",
+    "body": [
+      "while ${1:condition} {",
+      "    $0",
+      "}"
+    ],
+    "description": "while … { … }"
+  }
+}

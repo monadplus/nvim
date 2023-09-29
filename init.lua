@@ -6,8 +6,10 @@
 --  \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/
 --
 
-local ok, _ = pcall(require, 'impatient')
+-- https://neovim.io/doc/user/lua.html#vim.loader
+vim.loader.enable()
 
+local ok, _ = pcall(require, 'packer')
 if not ok then
   print('Call :PackerInstall and restart neovim')
   _G.packer_installed = false

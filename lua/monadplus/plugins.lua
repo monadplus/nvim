@@ -17,8 +17,6 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  use 'lewis6991/impatient.nvim' -- Faster nvim startup
-
   use 'nvim-lua/plenary.nvim'    -- Better std
 
   -- Git
@@ -59,7 +57,7 @@ return require('packer').startup(function(use)
   }
   use 'hkupty/iron.nvim'
   -- use 'kosayoda/nvim-lightbulb' -- Disabled: performance cost > usefulness
-  use 'folke/neoconf.nvim'
+  -- use 'folke/neoconf.nvim' -- can't make it work
   -- use 'mfussenegger/nvim-lint'
 
   -- Debugging

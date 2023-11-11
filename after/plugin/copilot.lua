@@ -5,7 +5,6 @@ end
 
 copilot.setup({
   panel = {
-    -- Using copilot_cmp instead
     enabled = false,
     auto_refresh = false,
     keymap = {
@@ -21,8 +20,7 @@ copilot.setup({
     },
   },
   suggestion = {
-    -- Using copilot_cmp instead
-    enabled = false,
+    enabled = true,
     auto_trigger = true,
     debounce = 75,
     keymap = {
@@ -48,10 +46,3 @@ copilot.setup({
   copilot_node_command = 'node', -- Node.js version must be > 18.x
   server_opts_overrides = {},
 })
-
-local ok, copilot_cmp = pcall(require, "copilot_cmp")
-if not ok then
-  return
-end
-
-copilot_cmp.setup()

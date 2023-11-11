@@ -70,7 +70,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
-  use { "zbirenbaum/copilot.lua" }
+  -- use { "zbirenbaum/copilot.lua" } -- Disabled: price > usefulness
 
   -- Snippets
   use 'L3MON4D3/LuaSnip'

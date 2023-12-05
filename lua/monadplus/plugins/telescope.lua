@@ -72,8 +72,8 @@ telescope.setup {
       i = {
         ["<esc>"] = actions.close,
         ["<C-h>"] = "which_key",
-        ["<C-k>"] = actions.cycle_history_next,
-        ["<C-j>"] = actions.cycle_history_prev,
+        ["<C-p>"] = actions.cycle_history_next,
+        ["<C-n>"] = actions.cycle_history_prev,
       },
     },
     prompt_prefix = "   ",

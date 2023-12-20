@@ -42,6 +42,14 @@ In select mode:
     - `q`/`<esc>`: exit
     - `<c-d>`: delete mark
 
+## nvim-pack/nvim-spectre
+
+Search and replace panel
+
+- `<leader>S`: Open spectre
+- `<leader>sw`: Replace current word (also works in visual-mode)
+- `<leader>sp`: Replace currend word in file
+
 ## TimUntersberger/neogit
 
 - `<leader>gg`: status buffer

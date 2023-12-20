@@ -174,6 +174,7 @@ return require('packer').startup(function(use)
       'nvim-telescope/telescope.nvim',
     }
   }
+  use 'nvim-pack/nvim-spectre'
 
   -- Neovim + Lua development
   use 'folke/neodev.nvim'

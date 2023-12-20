@@ -47,6 +47,7 @@ mkdir -p ~/.local/share/nvim/databases/
 - [fd](https://github.com/sharkdp/fd)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [lazygit](https://github.com/jesseduffield/lazygit)
+- sed (GNU sed) for nvim-spectre
 
 ### Optional dependencies
 

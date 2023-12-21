@@ -33,7 +33,8 @@ cmp.setup {
       end
     end),
     ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
+      -- Bug: https://github.com/hrsh7th/nvim-cmp/issues/611
+      behavior = cmp.ConfirmBehavior.Insert, -- Replace
       select = true,
     },
     ['<Tab>'] = cmp.mapping(function(fallback)

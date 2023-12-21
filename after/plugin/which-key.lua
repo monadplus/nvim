@@ -81,6 +81,7 @@ wk.register({
     m = { name = "+lsp" },
     o = { name = "+open" },
     r = { name = "+repl" },
+    s = { name = "+search" },
     t = { name = "+toggle" },
     v = { name = "+diffview" },
     x = { name = "+trouble" },

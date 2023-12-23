@@ -323,3 +323,36 @@ Using [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo).
 `zg`: Add a word to the dictionary
 
 More at [spell](https://neovim.io/doc/user/spell.html)
+
+## org mode
+
+- `g?` for help
+- `<Leader><Enter>` e.g. in list will create next bullet.
+
+See https://github.com/nvim-orgmode/orgmode#detailed-breakdown
+
+```org
+#+title: Test
+#+author: Arnau
+
+* [[https://github.com/akinsho/org-bullets.nvim][org-bullets.nvim]]     :org:
+** Synopsis
+   This plugin is a clone of org-bullets. It replaces the asterisks in org
+   syntax with unicode characters.
+* [[https://github.com/dhruvasagar/vim-table-mode][vim-table-mode]]     :org:
+** DONE Synopsis
+   CLOSED: [2023-12-24 Sun 00:10]
+   SCHEDULED: <YYYY-MM-DD>
+* [[https://github.com/nvim-lua/plenary.nvim][plenary]]
+** TODO [#A] Synopsis                                                      :foo:
+    - [X] foo
+#+begin_src rust
+   fn main() {
+      let x = "String";
+      let x = "String";
+      println!("Hello: {}", x);
+   }
+#+end_src
+
+[[file:./test2.org][test2]]
+```

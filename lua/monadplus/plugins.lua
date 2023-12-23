@@ -17,7 +17,7 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  use 'nvim-lua/plenary.nvim'    -- Better std
+  use 'nvim-lua/plenary.nvim' -- Better std
 
   -- Git
   use {
@@ -160,6 +160,14 @@ return require('packer').startup(function(use)
   -- Utils
   -- use 'rmagatti/auto-session' -- NOTE: it does error from time to time
   use 'nvim-orgmode/orgmode'
+  use {
+    'akinsho/org-bullets.nvim',
+    requires = 'nvim-orgmode/orgmode'
+  }
+  -- use {
+  --   'lukas-reineke/headlines.nvim',
+  --   requires = 'nvim-orgmode/orgmode',
+  -- }
   use 'folke/which-key.nvim'
   use {
     'kevinhwang91/nvim-ufo',

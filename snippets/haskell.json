@@ -138,8 +138,7 @@
       "",
       "main :: IO ()",
       "main = do",
-      "\t${1:undefined}$0",
-      "return ()"
+      "\t${1:putStrLn \"Not implemented\"}$0"
     ],
     "description": "main module"
   },
@@ -172,6 +171,15 @@
     ],
     "body": [
       "newtype ${1:Type} ${2:a} = $1 { un$1 :: ${3:a} } ${4:deriving (${5:Show, Eq})}$0"
+    ],
+    "description": "Newtype definition"
+  },
+  "cost centres": {
+    "prefix": [
+      "scc"
+    ],
+    "body": [
+      "{-# SCC ${1:fun} #-}$0"
     ],
     "description": "Newtype definition"
   }

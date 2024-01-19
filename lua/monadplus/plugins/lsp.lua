@@ -204,6 +204,8 @@ local rt = require("rust-tools")
 -- Do a softlink to `$ rustup which rust-analyzer` in `~/.cargo/bin/`
 rt.setup({
   server = {
+    -- -- $ cargo install --git https://github.com/pr2502/ra-multiplex ra-multiplex
+    -- cmd = { 'ra-multiplex' },
     on_attach = function(client, bufnr)
       lsp_on_attach(client, bufnr)
 

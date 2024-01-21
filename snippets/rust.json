@@ -283,8 +283,8 @@
     ],
     "description": "#[test]"
   },
-  "tokio-test": {
-    "prefix": "test",
+  "test-tokio": {
+    "prefix": "test-tokio",
     "body": [
       "#[tokio::test]",
       "async fn ${1:name}() {",

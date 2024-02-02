@@ -102,7 +102,7 @@ lualine.setup {
   sections = {
     lualine_a = { 'mode' },
     lualine_b = { 'branch', 'diff', 'diagnostics' },
-    lualine_c = { filename, 'lsp_progress' },
+    lualine_c = { filename },
     lualine_x = {
       function()
         local space = vim.fn.search([[\s\+$]], 'nwc')

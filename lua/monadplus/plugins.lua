@@ -42,7 +42,6 @@ return require('packer').startup(function(use)
 
   -- LSP
   use 'neovim/nvim-lspconfig'
-  use 'simrat39/rust-tools.nvim'
   use {
     'mrcjkb/haskell-tools.nvim',
     requires = {

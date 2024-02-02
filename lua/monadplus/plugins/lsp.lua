@@ -197,58 +197,30 @@ end
 -- Markdown (marksman)
 lsp_custom_settings.marksman = {}
 
--- Rust (rust-analyzer)
-local rt = require("rust-tools")
-
--- Looks for rust-analyzer in the path.
--- Do a softlink to `$ rustup which rust-analyzer` in `~/.cargo/bin/`
-rt.setup({
-  server = {
-    -- -- $ cargo install --git https://github.com/pr2502/ra-multiplex ra-multiplex
-    -- cmd = { 'ra-multiplex' },
-    on_attach = function(client, bufnr)
-      lsp_on_attach(client, bufnr)
-
-      vim.keymap.set('n', '<leader>mc', rt.open_cargo_toml.open_cargo_toml,
-        { noremap = true, silent = true, desc = "Open Cargo.toml" })
-      vim.keymap.set('n', '<leader>ma', rt.hover_actions.hover_actions,
-        { noremap = true, silent = true, desc = "Hover code actions" })
-      vim.keymap.set('n', '<leader>mm', rt.expand_macro.expand_macro,
-        { noremap = true, silent = true, desc = "Expand macro" })
-      vim.keymap.set('n', '<leader>mp', rt.parent_module.parent_module,
-        { noremap = true, silent = true, desc = "Parent module" })
-    end,
-    settings = {
-      ["rust-analyzer"] = {
-        imports = {
-          granularity = {
-            group = "crate",
-          },
-          prefix = "crate",
-        },
-        checkOnSave = {
-          enable = true,
-        },
-        diagnostics = {
-          experimental = {
-            enable = true
-          },
-        },
-        procMacro = {
-          enable = true
-        },
-      }
-    }
-  },
-  tools = {
-    inlay_hints = {
-      auto = false,
+lsp_custom_settings.rust_analyzer = {
+  ['rust-analyzer'] = {
+    imports = {
+      granularity = {
+        group = "crate",
+      },
+      prefix = "crate",
     },
-    hover_actions = {
-      auto_focus = true,
-    }
+    checkOnSave = {
+      enable = true,
+    },
+    diagnostics = {
+      experimental = {
+        enable = true
+      },
+    },
+    procMacro = {
+      enable = true
+    },
+    cargo = {
+      features = "all"
+    },
   }
-})
+}
 
 -- Bash (bash-language-server)
 lsp_custom_settings.bashls = {}

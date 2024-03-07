@@ -14,66 +14,44 @@ Secondly, install this configuration:
 git clone git@github.com:monadplus/nvim.git "$HOME/.config/nvim" # or "$XDG_CONFIG_HOME/nvim"
 ```
 
-Finally, install all plugins using [Packer](https://github.com/wbthomason/packer.nvim):
+Then, we'll need to create this path for our telescope history: `mkdir -p ~/.local/share/nvim/databases/`.
 
-```bash
-# Errors may appear, ignore them.
-# Sometimes it doesn't close, you can interrupt it.
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-```
+Finally, open neovim and let [lazy.nvim](https://github.com/folke/lazy.nvim) install all plugins for you (you'll need internet connection). 
+Don't worry, lazy.nvim will auto-install the first time you open neovim. 
+Once everything is installed, restart neovim and check all plugins are correctly installed `:Lazy health`.
 
-Once everything is installed, check all plugins are correctly installed:
+## Keybindings
 
-```vim
-:PackerInstall
-:PackerCompile
-```
+See [keybindings](./docs/keybindings.md).
 
-And update treesitter parsers (see [treesitter.lua](/lua/monadplus/plugins/treesitter.lua)):
+## Dependencies
 
-```bash
-# Stored at '/home/arnau/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser'
-:TSUpdate
-```
+> This section is incomplete
 
-We'll need to create this path for our telescope history:
+- `git`, [fd](https://github.com/sharkdp/fd)
+- [nvim-spectre](https://github.com/nvim-pack/nvim-spectre): [ripgrep](https://github.com/BurntSushi/ripgrep) and GNU sed
+- [markdown-preview](https://github.com/iamcco/markdown-preview.nvim): [node](https://nodejs.org/en/) and [yarn](https://yarnpkg.com/).
 
-```bash
-mkdir -p ~/.local/share/nvim/databases/
-```
+## LSP Servers
 
-### Dependencies
-
-- [fd](https://github.com/sharkdp/fd)
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
-- [lazygit](https://github.com/jesseduffield/lazygit)
-- sed (GNU sed) for nvim-spectre
-
-### Optional dependencies
-
-- [node](https://nodejs.org/en/) and [yarn](https://yarnpkg.com/) for [markdown-preview](https://github.com/iamcco/markdown-preview.nvim) 
-
-### LSP Servers
-
+This project is configured using [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig).
+For the lsp client to work, the client needs their corresponding LSP servers.
 LSP servers can be installed from your distribution's package manager.
 Alternatively, you can configure the plugin [mason.nvim](https://github.com/williamboman/mason.nvim) (**which is not configured**) to automatically install them.
 
-This configuration expects the following LSP servers:
-- bash-language-server (bash)
-- ccls (pacman) + bear (c/c++)
-- hls (haskell)
-- pyright (python)
-- marksman (markdown)
-- lua-language-server (lua)
-- nil (nix)
-- rust-analyzer (rust)
-- yaml-language-server (yaml)
+The following languages are configured out of the box. 
+You will only have to install their corresponding LSP server.
+
+- `Python`: [pyright](https://github.com/microsoft/pyright)
+- `Rust`: [rust-analyzer](https://github.com/rust-lang/rust-analyzer)
+- `Haskell`: [haskell-language-server](https://github.com/haskell/haskell-language-server)
+- `Nix`: [nil](https://github.com/oxalica/nil)
+- `Lua`: [lua-language-server](https://github.com/LuaLS/lua-language-server)
+- `Bash`: [bash-language-server](https://github.com/bash-lsp/bash-language-server)
+- `Yaml`: [yaml-language-server](https://github.com/redhat-developer/yaml-language-server)
+- `Markdown`: [marksman](https://github.com/artempyanykh/marksman)
 
 Feel free to add/remove servers from [lsp.lua](/lua/monadplus/plugins/lsp.lua). See [server configurations](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md) for more information of available servers.
-
-## Mappings
-
-See [keybindings](./doc/keybindings.md)
 
 ## Issues
 

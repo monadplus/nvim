@@ -451,64 +451,7 @@ return {
       'Mofiqul/dracula.nvim',
       'nvim-tree/nvim-web-devicons',
     },
-    opts = {
-      options = {
-        icons_enabled = true,
-        theme = 'dracula-nvim',
-        component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
-        disabled_filetypes = {
-          statusline = {},
-          winbar = {},
-        },
-        ignore_focus = {},
-        always_divide_middle = true,
-        globalstatus = false,
-        refresh = {
-          statusline = 1000,
-          tabline = 1000,
-          winbar = 1000,
-        }
-      },
-      -- +-------------------------------------------------+
-      -- | A | B | C                             X | Y | Z |
-      -- +-------------------------------------------------+
-      sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { filename },
-        lualine_x = {
-          {
-            require("lazy.status").updates,
-            cond = require("lazy.status").has_updates,
-            color = { fg = require('dracula').colors().white },
-          },
-          'encoding', 'fileformat', 'filetype' },
-        lualine_y = { 'progress' },
-        lualine_z = { 'location' }
-      },
-      inactive_sections = {
-        -- Windows not focus
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = { filename },
-        lualine_x = { 'location' },
-        lualine_y = {},
-        lualine_z = {}
-      },
-      tabline = {},
-      winbar = {},
-      inactive_winbar = {},
-      extensions = {
-        'nvim-tree',
-      }
-    },
-    config = function(_, opts)
-      local lualine
-
-      ------------------------
-      -- filetype
-
+    config = function()
       local filename = require('lualine.components.filename'):extend()
       local highlight = require('lualine.highlight')
       local colors = require('dracula').colors()
@@ -578,7 +521,58 @@ return {
       end
 
       -- Setup
-      require('lualine').setup(opts)
+      require('lualine').setup {
+        options = {
+          icons_enabled = true,
+          theme = 'dracula-nvim',
+          component_separators = { left = '', right = '' },
+          section_separators = { left = '', right = '' },
+          disabled_filetypes = {
+            statusline = {},
+            winbar = {},
+          },
+          ignore_focus = {},
+          always_divide_middle = true,
+          globalstatus = false,
+          refresh = {
+            statusline = 1000,
+            tabline = 1000,
+            winbar = 1000,
+          }
+        },
+        -- +-------------------------------------------------+
+        -- | A | B | C                             X | Y | Z |
+        -- +-------------------------------------------------+
+        sections = {
+          lualine_a = { 'mode' },
+          lualine_b = { 'branch', 'diff', 'diagnostics' },
+          lualine_c = { filename },
+          lualine_x = {
+            {
+              require("lazy.status").updates,
+              cond = require("lazy.status").has_updates,
+              color = { fg = require('dracula').colors().white },
+            },
+            'encoding', 'fileformat', 'filetype' },
+          lualine_y = { 'progress' },
+          lualine_z = { 'location' }
+        },
+        inactive_sections = {
+          -- Windows not focus
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = { filename },
+          lualine_x = { 'location' },
+          lualine_y = {},
+          lualine_z = {}
+        },
+        tabline = {},
+        winbar = {},
+        inactive_winbar = {},
+        extensions = {
+          'nvim-tree',
+        }
+      }
     end
   },
 

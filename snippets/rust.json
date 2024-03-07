@@ -1,4 +1,18 @@
 {
+  "inline": {
+    "prefix": "inline",
+    "body": [
+      "#[inline]$0"
+    ],
+    "description": "#[inline]"
+  },
+  "never-inline": {
+    "prefix": "inline-never",
+    "body": [
+      "#[inline(never)]$0"
+    ],
+    "description": "#[inline(never)]"
+  },
   "clippy_allow": {
     "prefix": "allow",
     "body": [

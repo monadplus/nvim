@@ -2,7 +2,64 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
+      { 'nvim-treesitter/nvim-treesitter-textobjects' },
+      {
+        'nvim-treesitter/nvim-treesitter-context',
+        keys = {
+          {
+            "<leader>tc",
+            "<cmd>TSContextToggle<cr>",
+            mode = { "n" },
+            silent = true,
+            noremap = true,
+            desc = "Treesitter context",
+          },
+        },
+        opts = {
+          enable = true,
+          max_lines = 0,
+          trim_scope = 'outer',
+          min_window_height = 0,
+          patterns = {
+            default = {
+              'class',
+              'function',
+              'method',
+              'for',
+              'while',
+              'if',
+              'switch',
+              'case',
+            },
+            tex = {
+              'chapter',
+              'section',
+              'subsection',
+              'subsubsection',
+            },
+            rust = {
+              'impl_item',
+              'struct',
+              'enum',
+              'anonymous_function',
+              "loop_expression",
+            },
+            markdown = {
+              'section',
+            },
+            json = {
+              'pair',
+            },
+            yaml = {
+              'block_mapping_pair',
+            },
+          },
+          exact_patterns = {},
+          zindex = 20,
+          mode = 'cursor',
+          separator = nil,
+        },
+      }
     },
     build = function()
       require('nvim-treesitter.install').update({ with_sync = true })
@@ -123,62 +180,4 @@ return {
       vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
     end
   },
-
-  {
-    'nvim-treesitter/nvim-treesitter-context',
-    keys = {
-      {
-        "<leader>tc",
-        "<cmd>TSContextToggle<cr>",
-        mode = { "n" },
-        silent = true,
-        noremap = true,
-        desc = "Treesitter context",
-      },
-    },
-    opts = {
-      enable = true,
-      max_lines = 0,
-      trim_scope = 'outer',
-      min_window_height = 0,
-      patterns = {
-        default = {
-          'class',
-          'function',
-          'method',
-          'for',
-          'while',
-          'if',
-          'switch',
-          'case',
-        },
-        tex = {
-          'chapter',
-          'section',
-          'subsection',
-          'subsubsection',
-        },
-        rust = {
-          'impl_item',
-          'struct',
-          'enum',
-          'anonymous_function',
-          "loop_expression",
-        },
-        markdown = {
-          'section',
-        },
-        json = {
-          'pair',
-        },
-        yaml = {
-          'block_mapping_pair',
-        },
-      },
-      exact_patterns = {},
-      zindex = 20,
-      mode = 'cursor',
-      separator = nil,
-    },
-  }
 }

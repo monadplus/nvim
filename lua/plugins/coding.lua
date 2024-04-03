@@ -138,7 +138,7 @@ return {
 
   {
     'kosayoda/nvim-lightbulb',
-    disabled = true, -- Disabled: performance cost > usefulness
+    enabled = false, -- Disabled: performance cost > usefulness
     dependencies = { 'Mofiqul/dracula.nvim' },
     config = function()
       local ok, lightbulb = pcall(require, "nvim-lightbulb")
@@ -394,7 +394,7 @@ return {
             prefix = "crate",
           },
           checkOnSave = {
-            enable = true,
+            enable = true, -- Disable for performance boost
           },
           diagnostics = {
             experimental = {

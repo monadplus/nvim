@@ -240,28 +240,8 @@ return {
     lazy = false,
     keys = {
       {
-        "<C-W><C-W>",
-        function()
-          local count = 0
-          for _, win in ipairs(vim.api.nvim_list_wins()) do
-            if vim.api.nvim_win_is_valid(win) then
-              if vim.api.nvim_win_get_config(win).relative == "" then
-                count = count + 1
-              end
-            end
-          end
-
-          if (count > 2) then
-            require("nvim-window").pick()
-          else
-            local current = vim.api.nvim_get_current_win()
-            for _, value in ipairs(vim.api.nvim_list_wins()) do
-              if (value ~= current) then
-                vim.api.nvim_set_current_win(value)
-              end
-            end
-          end
-        end,
+        "<C-W>w",
+        function() require("nvim-window").pick() end,
         mode = { "n" },
         silent = true,
         noremap = true,

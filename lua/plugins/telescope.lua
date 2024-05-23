@@ -105,7 +105,7 @@ return {
 
   {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.2',
+    tag = '0.1.6',
     dependencies = {
       'MrcJkb/telescope-manix',
       'luc-tielen/telescope_hoogle',

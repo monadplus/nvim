@@ -436,8 +436,23 @@ return {
       lsp_custom_settings.yamlls = {} -- schema validation must be configured here
 
       -- C/C++ (ccls)
-      lsp_custom_settings.ccls = {} -- schema validation must be configured here
-      --More at https://github.com/MaskRay/ccls/wiki/Project-Setup
+      -- More at https://github.com/MaskRay/ccls/wiki/Project-Setup
+      lsp_custom_settings.ccls = {}
+
+      -- -- C/C++ (ccls)
+      -- -- https://clangd.llvm.org/installation#compile_commandsjson
+      -- lsp_custom_settings.clangd = {
+      --   ['clangd'] = {
+      --     cmd = {
+      --       "clangd",
+      --       "--clang-tidy",
+      --       "-j=16",
+      --       "--malloc-trim",
+      --       "--no-cuda-version-check",
+      --     },
+      --     filetypes = { "c", "cpp", "cu" },
+      --   }
+      -- }
 
       -- Python (pyright)
       lsp_custom_settings.pyright = {}

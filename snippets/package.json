@@ -22,6 +22,10 @@
                 "path": "./haskell.json"
             },
             {
+                "language": ["c", "cuda"],
+                "path": "./c.json"
+            },
+            {
                 "language": ["markdown", "rmd"],
                 "path": "./markdown.json"
             },

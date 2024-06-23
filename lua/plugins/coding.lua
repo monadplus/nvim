@@ -192,14 +192,14 @@ return {
       'nvim-telescope/telescope.nvim',
       'hrsh7th/nvim-cmp',
       'hrsh7th/cmp-nvim-lsp',
-      -- {
-      --   "ray-x/lsp_signature.nvim",
-      --   event = "VeryLazy",
-      --   opts = {
-      --     bind = true
-      --   },
-      --   config = function(_, opts) require'lsp_signature'.setup(opts) end
-      -- }
+      {
+        "ray-x/lsp_signature.nvim",
+        event = "VeryLazy",
+        opts = {
+          bind = true
+        },
+        config = function(_, opts) require'lsp_signature'.setup(opts) end
+      }
     },
     config = function()
       local lspconfig = require 'lspconfig'
@@ -215,7 +215,7 @@ return {
       end
 
       local lsp_on_attach = function(client, bufnr)
-        -- require "lsp_signature".on_attach({bind = true}, bufnr)
+        require "lsp_signature".on_attach({bind = true}, bufnr)
 
         -- NOTE: Setting this makes "nvim-cmp" stop working.
         -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')

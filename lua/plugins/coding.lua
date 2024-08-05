@@ -1,5 +1,4 @@
 return {
-
   -- lsp progress
   {
     'j-hui/fidget.nvim',
@@ -198,8 +197,12 @@ return {
         opts = {
           bind = true
         },
-        config = function(_, opts) require'lsp_signature'.setup(opts) end
-      }
+        config = function(_, opts) require 'lsp_signature'.setup(opts) end
+      },
+      {
+        'saecki/crates.nvim',
+        tag = 'stable',
+      },
     },
     config = function()
       local lspconfig = require 'lspconfig'
@@ -215,7 +218,7 @@ return {
       end
 
       local lsp_on_attach = function(client, bufnr)
-        require "lsp_signature".on_attach({bind = true}, bufnr)
+        require "lsp_signature".on_attach({ bind = true }, bufnr)
 
         -- NOTE: Setting this makes "nvim-cmp" stop working.
         -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -417,6 +420,23 @@ return {
           cargo = {
             features = "all"
           },
+        }
+      }
+
+      require('crates').setup {
+        lsp = {
+          enabled = true,
+          on_attach = function(client, bufnr)
+            lsp_on_attach(client, bufnr)
+          end,
+          actions = true,
+          completion = false,
+          hover = false,
+        },
+        completion = {
+          cmp = {
+            enabled = true,
+          }
         }
       }
 

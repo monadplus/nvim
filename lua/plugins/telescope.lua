@@ -238,6 +238,7 @@ return {
       telescope.load_extension('fzf')
       telescope.load_extension('smart_history')
       telescope.load_extension('hoogle')
+      telescope.load_extension('grapple')
 
       telescope.load_extension('bookmarks')
       vim.keymap.set('n', '<leader>fb', '<cmd>Telescope bookmarks<cr>', { desc = 'Browser bookmarks' })

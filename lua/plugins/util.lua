@@ -43,6 +43,7 @@ return {
       }
 
       wk.add({
+        { "<leader>a", desc = "+bookmarks" },
         { "<leader>b", desc = "+buffer" },
         { "<leader>c", desc = "+code" },
         { "<leader>d", desc = "+diffview" },
@@ -270,5 +271,24 @@ return {
       require('org-bullets').setup()
     end,
   },
+
+  {
+    "cbochs/grapple.nvim",
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons", lazy = true }
+    },
+    opts = {
+      scope = "git",
+    },
+    event = { "BufReadPost", "BufNewFile" },
+    cmd = "Grapple",
+    keys = {
+      { "<leader>at", "<cmd>Grapple toggle<cr>",                                  desc = "Grapple toggle tag" },
+      -- { "<leader>aa", "<cmd>Grapple toggle_tags<cr>", desc = "Grapple open tags window" },
+      { "<leader>aa", "<cmd>Telescope grapple tags layout_strategy=vertical<cr>", desc = "Grapple open tags window" },
+      { "]a",         "<cmd>Grapple cycle_tags next<cr>",                         desc = "Grapple cycle next tag" },
+      { "[a",         "<cmd>Grapple cycle_tags prev<cr>",                         desc = "Grapple cycle previous tag" },
+    },
+  }
 
 }

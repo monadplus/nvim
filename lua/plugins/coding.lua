@@ -29,40 +29,56 @@ return {
     },
     keys = {
       {
-        "<leader>xx",
-        "<cmd>TroubleToggle<cr>",
-        mode = { "n" },
-        silent = true,
-        noremap = true,
-        desc = "All",
-      },
-      {
-        "<leader>xc",
-        "<cmd>TroubleClose<cr>",
-        mode = { "n" },
-        silent = true,
-        noremap = true,
-        desc = "Close",
-      },
-      {
         "<leader>xd",
-        "<cmd>TroubleToggle document_diagnostics<cr>",
+        "<cmd>Trouble diagnostics toggle<cr>",
         mode = { "n" },
         silent = true,
         noremap = true,
         desc = "Diagnostics",
       },
       {
-        "<leader>xr",
-        "<cmd>TroubleToggle lsp_references<cr>",
+        "<leader>xb",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
         mode = { "n" },
         silent = true,
         noremap = true,
-        desc = "References",
+        desc = "Diagnostics buffer",
+      },
+      {
+        "<leader>xc",
+        "<cmd>Trouble toggle<cr>",
+        mode = { "n" },
+        silent = true,
+        noremap = true,
+        desc = "Close",
+      },
+      {
+        "<leader>xs",
+        "<cmd>Trouble symbols toggle focus=false pinned=true win.relative=win win.position=right<cr>",
+        mode = { "n" },
+        silent = true,
+        noremap = true,
+        desc = "Symbols",
+      },
+      {
+        "<leader>xr",
+        "<cmd>Trouble lsp_references toggle<cr>",
+        mode = { "n" },
+        silent = true,
+        noremap = true,
+        desc = "LSP references",
+      },
+      {
+        "<leader>xi",
+        "<cmd>Trouble lsp_implementations toggle<cr>",
+        mode = { "n" },
+        silent = true,
+        noremap = true,
+        desc = "LSP implementations",
       },
       {
         "<leader>xq",
-        "<cmd>TroubleToggle quickfix<cr>",
+        "<cmd>Trouble quickfix toggle<cr>",
         mode = { "n" },
         silent = true,
         noremap = true,
@@ -70,7 +86,7 @@ return {
       },
       {
         "<leader>xl",
-        "<cmd>TroubleToggle loclist<cr>",
+        "<cmd>Trouble loclist toggle<cr>",
         mode = { "n" },
         silent = true,
         noremap = true,
@@ -86,52 +102,29 @@ return {
       },
     },
     opts = {
-
-      position = "bottom", -- position of the list can be: bottom, top, left, right
-      height = 10, -- height of the trouble list when position is top or bottom
-      width = 50, -- width of the list when position is left or right
-      icons = true, -- use devicons for filenames
-      mode = "workspace_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
-      fold_open = "", -- icon used for open folds
-      fold_closed = "", -- icon used for closed folds
-      group = true, -- group results by file
-      padding = true, -- add an extra new line on top of the list
-      action_keys = { -- key mappings for actions in the trouble list
-        -- map to {} to remove a mapping
-        previous = "k", -- previous item
-        next = "j", -- next item
-        jump_close = { "<cr>", "<tab>" }, -- jump to the diagnostic and close the list
-        open_split = { "<c-s>" }, -- open buffer in new split
-        open_vsplit = { "<c-v>" }, -- open buffer in new vsplit
-        close = "q", -- close the list
-        cancel = "<esc>", -- cancel the preview and get back to your last window / buffer / cursor
-        refresh = "r", -- manually refresh
-
-        close_folds = { "zM", "zm" }, -- close all folds
-        open_folds = { "zR", "zr" }, -- open all folds
-        toggle_fold = { "zA", "za" }, -- toggle fold of current file
-
-        open_tab = {}, -- open buffer in new tab
-        toggle_mode = {}, -- toggle between "workspace" and "document" diagnostics mode
-        toggle_preview = {}, -- toggle auto_preview
-        hover = {}, -- opens a small popup with the full multiline message
-        preview = {}, -- preview the diagnostic location
-        jump = { "o" }, -- jump to the diagnostic or open / close folds
+      focus = true,
+      win = {
+        position = "right",
       },
-      indent_lines = true, -- add an indent guide below the fold icons
-      auto_open = false, -- automatically open the list when you have diagnostics
-      auto_close = false, -- automatically close the list when you have no diagnostics
-      auto_preview = true, -- automatically preview the location of the diagnostic. <esc> to close preview and go back to last window
-      auto_fold = false, -- automatically fold a file trouble list at creation
-      auto_jump = { "lsp_definitions" }, -- for the given modes, automatically jump if there is only a single result
-      signs = {
-        error = "",
-        warning = "",
-        hint = "󰍉",
-        information = "",
-        other = "",
+      keys = {
+        o = "jump",
+        ["<cr>"] = "jump_close",
       },
-      use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
+      modes = {
+        lsp_base = {
+          params = {
+            include_declaration = true,
+            include_current = false,
+          },
+          preview = {
+            type = "float",
+            relative = "editor",
+            border = "rounded",
+            title = "Preview",
+            title_pos = "center",
+          },
+        },
+      },
     },
   },
 
@@ -238,9 +231,9 @@ return {
           }
         end, { noremap = true, silent = true, buffer = bufnr, desc = "Definition (vsplit)" })
         if pcall(require, "trouble") then
-          vim.keymap.set('n', 'gr', "<cmd>TroubleToggle lsp_references<cr>",
+          vim.keymap.set('n', 'gr', "<cmd>Trouble lsp_references toggle<cr>",
             { noremap = true, silent = true, buffer = bufnr, desc = "References" })
-          vim.keymap.set('n', 'gi', "<cmd>TroubleToggle lsp_implementations<cr>",
+          vim.keymap.set('n', 'gi', "<cmd>Trouble lsp_implementations toggle<cr>",
             { noremap = true, silent = true, buffer = bufnr, desc = "Implementation" })
         else
           vim.keymap.set('n', 'gr', vim.lsp.buf.references,

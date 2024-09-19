@@ -19,6 +19,7 @@ return {
     config = function()
       local luasnip = require("luasnip")
       local cmp = require("cmp")
+      local compare = cmp.config.compare
 
       cmp.setup {
         snippet = {
@@ -76,13 +77,29 @@ return {
         -- end, {silent = true})
 
         sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
-          { name = 'orgmode' },
-          { name = 'crates' },
-        }, {
-          { name = 'buffer' },
-        })
+          { name = 'nvim_lsp', priority = 8 },
+          { name = 'crates',   priority = 8 },
+          { name = 'luasnip',  priority = 7 },
+          { name = 'buffer',   priority = 7 },
+          { name = 'orgmode',  priority = 6 },
+        }),
+
+        sorting = {
+          priority_weight = 1.0,
+          comparators = {
+            -- compare.score_offset, -- not good at all
+            compare.locality,
+            compare.recently_used,
+            compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
+            compare.offset,
+            compare.order,
+            -- compare.scopes, -- what?
+            -- compare.sort_text,
+            -- compare.exact,
+            -- compare.kind,
+            -- compare.length, -- useless
+          },
+        },
       }
 
       cmp.setup.cmdline('/', {

@@ -104,7 +104,7 @@ return {
     opts = {
       focus = true,
       win = {
-        position = "right",
+        position = "bottom",
       },
       keys = {
         o = "jump",
@@ -114,14 +114,6 @@ return {
         lsp_base = {
           params = {
             include_declaration = true,
-            include_current = false,
-          },
-          preview = {
-            type = "float",
-            relative = "editor",
-            border = "rounded",
-            title = "Preview",
-            title_pos = "center",
           },
         },
       },

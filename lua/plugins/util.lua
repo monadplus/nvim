@@ -236,15 +236,15 @@ return {
   -- Delete buffers efficiently
   'famiu/bufdelete.nvim',
 
-  -- Preview markdown on browser
   {
-    "iamcco/markdown-preview.nvim",
-    build = "cd app && npm install",
-    init = function()
-      vim.g.mkdp_filetypes = {
-        "markdown" }
-    end,
-    ft = { "markdown" },
+    'OXY2DEV/markview.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    lazy = false,
+    opts = {
+      preview = {
+        icon_provider = "devicons"
+      }
+    },
   },
 
   -- Disabled

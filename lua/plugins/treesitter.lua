@@ -78,8 +78,10 @@ return {
           "bash",
           "c",
           "haskell",
+          "html",
           "json",
           "jsonc", -- neoconf depends on
+          -- "latex",
           "lua",
           "markdown",
           "markdown_inline",

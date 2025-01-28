@@ -242,6 +242,7 @@ return {
     lazy = false,
     opts = {
       preview = {
+        enable = false,
         icon_provider = "devicons"
       }
     },

@@ -262,7 +262,7 @@ return {
       -- Must be called before lua_ls
       require("neodev").setup {}
 
-      -- https://github.com/luals/lua-language-server
+      -- https://github.com/LuaLS/lua-language-server
       lsp_custom_settings.lua_ls = {
         Lua = {
           runtime = {
@@ -381,6 +381,7 @@ return {
       require('telescope').load_extension('ht')
 
       -- Markdown (marksman)
+      -- https://github.com/artempyanykh/marksman
       lsp_custom_settings.marksman = {}
 
       lsp_custom_settings.rust_analyzer = {
@@ -425,7 +426,7 @@ return {
         }
       }
 
-      -- Bash (bash-language-server)
+      -- https://github.com/bash-lsp/bash-language-server
       lsp_custom_settings.bashls = {}
 
       -- Nix (nil)
@@ -437,7 +438,7 @@ return {
         },
       }
 
-      -- Yaml (yaml-language-server)
+      -- https://github.com/redhat-developer/yaml-language-server
       lsp_custom_settings.yamlls = {} -- schema validation must be configured here
 
       -- C/C++ (ccls)

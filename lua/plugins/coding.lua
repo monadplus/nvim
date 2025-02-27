@@ -1,4 +1,12 @@
 return {
+  -- LaTeX
+  {
+    "lervag/vimtex",
+    lazy = false,
+    init = function()
+      vim.g.vimtex_view_method = "zathura"
+    end
+  },
   -- lsp progress
   {
     'j-hui/fidget.nvim',

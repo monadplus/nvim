@@ -398,30 +398,9 @@ return {
 
   {
     'lukas-reineke/indent-blankline.nvim',
-    tag = "v2.20.8",
-    dependencies = {
-      'Mofiqul/dracula.nvim',
-    },
+    tag = "v3.9.0",
     config = function()
-      vim.opt.list = false
-      vim.opt.listchars:append "space:⋅"
-      vim.opt.listchars:append "eol:↴"
-
-      -- :help indent_blankline.txt
-      require('indent_blankline').setup {
-        char = '│',
-        use_treesitter = true,
-        show_first_indent_level = false,
-        char_highlight_list = {
-          "IndentBlanklineIndent1",
-        },
-        space_char_highlight_list = {
-          "IndentBlanklineIndent1",
-        },
-      }
-
-      local colors = require('dracula').colors()
-      vim.api.nvim_set_hl(0, "IndentBlanklineIndent1", { fg = colors.visual, })
+      require('ibl').setup()
     end
   },
 

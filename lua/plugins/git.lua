@@ -71,6 +71,13 @@ return {
     dependencies = {
       { 'nvim-tree/nvim-web-devicons' },
     },
+    init = function()
+      local colors = require("dracula").colors()
+      vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#0c4a1c", bold = false })
+      vim.api.nvim_set_hl(0, "DiffChange", { bg = "#073c52", bold = false })
+      vim.api.nvim_set_hl(0, "DiffDelete", { bg = "#A33636", bold = false })
+      vim.api.nvim_set_hl(0, "DiffText", { bg = "#041e29", bold = true })
+    end,
     keys = {
       {
         "<leader>dd",

@@ -449,9 +449,11 @@ return {
       -- https://github.com/redhat-developer/yaml-language-server
       lsp_custom_settings.yamlls = {} -- schema validation must be configured here
 
+      lsp_custom_settings.clangd = {}
+
       -- C/C++ (ccls)
       -- More at https://github.com/MaskRay/ccls/wiki/Project-Setup
-      lsp_custom_settings.ccls = {}
+      -- lsp_custom_settings.ccls = {}
 
       -- -- C/C++ (ccls)
       -- -- https://clangd.llvm.org/installation#compile_commandsjson

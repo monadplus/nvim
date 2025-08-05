@@ -2,6 +2,18 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
+      {
+        -- Make sure to load markview first
+        'OXY2DEV/markview.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        lazy = false,
+        opts = {
+          preview = {
+            enable = false,
+            icon_provider = "devicons"
+          }
+        },
+      },
       { 'nvim-treesitter/nvim-treesitter-textobjects' },
       {
         'nvim-treesitter/nvim-treesitter-context',

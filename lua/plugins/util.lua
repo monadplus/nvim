@@ -236,18 +236,6 @@ return {
   -- Delete buffers efficiently
   'famiu/bufdelete.nvim',
 
-  {
-    'OXY2DEV/markview.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    lazy = false,
-    opts = {
-      preview = {
-        enable = false,
-        icon_provider = "devicons"
-      }
-    },
-  },
-
   -- Disabled
   {
     'nvim-orgmode/orgmode',

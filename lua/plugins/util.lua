@@ -236,31 +236,6 @@ return {
   -- Delete buffers efficiently
   'famiu/bufdelete.nvim',
 
-  -- Disabled
-  {
-    'nvim-orgmode/orgmode',
-    enabled = false,
-    dependencies = {
-      { 'nvim-treesitter/nvim-treesitter', lazy = true },
-      { 'akinsho/org-bullets.nvim',        lazy = true, branch = 'main' },
-    },
-    ft = "org",
-    config = function()
-      local orgmode = require('orgmode')
-
-      -- Load treesitter grammar for org
-      orgmode.setup_ts_grammar()
-
-      -- Setup orgmode
-      orgmode.setup({
-        org_agenda_files = { '~/Dropbox/org/*' },
-        org_default_notes_file = '~/Dropbox/org/refile.org',
-      })
-
-      require('org-bullets').setup()
-    end,
-  },
-
   {
     "cbochs/grapple.nvim",
     dependencies = {

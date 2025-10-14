@@ -198,8 +198,6 @@ return {
       },
     },
     config = function()
-      local lspconfig = require 'lspconfig'
-
       vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { silent = true, noremap = true, desc = "Previous diagnostic" })
       vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { silent = true, noremap = true, desc = "Next diagnostic" })
       vim.keymap.set('n', '<leader>me', vim.diagnostic.open_float,
@@ -479,12 +477,13 @@ return {
       local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       for lsp, settings in pairs(lsp_custom_settings) do
-        lspconfig[lsp].setup {
+        vim.lsp.enable(lsp)
+        vim.lsp.config(lsp, {
           capabilities = lsp_capabilities,
           flags = lsp_flags,
           on_attach = lsp_on_attach,
           settings = settings,
-        }
+        })
       end
 
       ----------------------------------------------------------

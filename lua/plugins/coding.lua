@@ -386,10 +386,6 @@ return {
 
       require('telescope').load_extension('ht')
 
-      -- Markdown (marksman)
-      -- https://github.com/artempyanykh/marksman
-      lsp_custom_settings.marksman = {}
-
       lsp_custom_settings.rust_analyzer = {
         ['rust-analyzer'] = {
           imports = {

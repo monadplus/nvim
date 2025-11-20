@@ -49,7 +49,6 @@ You will only have to install their corresponding LSP server.
 - `Lua`: [lua-language-server](https://github.com/LuaLS/lua-language-server)
 - `Bash`: [bash-language-server](https://github.com/bash-lsp/bash-language-server)
 - `Yaml`: [yaml-language-server](https://github.com/redhat-developer/yaml-language-server)
-- `Markdown`: [marksman](https://github.com/artempyanykh/marksman)
 
 Feel free to add/remove servers from [lsp.lua](/lua/monadplus/plugins/lsp.lua). See [server configurations](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md) for more information of available servers.
 

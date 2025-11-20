@@ -3,14 +3,15 @@ return {
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       {
-        -- Make sure to load markview first
-        'OXY2DEV/markview.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
-        lazy = false,
+        'MeanderingProgrammer/render-markdown.nvim',
+        dependencies = {
+          'nvim-treesitter/nvim-treesitter',
+          'nvim-tree/nvim-web-devicons'
+        },
         opts = {
-          preview = {
-            enable = false,
-            icon_provider = "devicons"
+          enabled = false,
+          completions = {
+            lsp = { enabled = true },
           }
         },
       },

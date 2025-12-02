@@ -87,10 +87,8 @@ return {
       require 'nvim-treesitter.configs'.setup {
 
         ensure_installed = {
-          "agda",
           "bash",
           "c",
-          "haskell",
           "html",
           "json",
           "jsonc", -- neoconf depends on

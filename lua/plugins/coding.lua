@@ -7,6 +7,7 @@ return {
       vim.g.vimtex_view_method = "zathura"
     end
   },
+
   -- lsp progress
   {
     'j-hui/fidget.nvim',
@@ -18,15 +19,6 @@ return {
         },
       },
     },
-  },
-  {
-    'mrcjkb/haskell-tools.nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim',
-    },
-    version = '^3',
-    ft = { 'haskell', 'lhaskell', 'cabal', 'cabalproject' },
   },
 
   {
@@ -160,24 +152,6 @@ return {
   },
 
   {
-    'mfussenegger/nvim-lint',
-    enabled = false,
-    config = function()
-      local lint = require("lint")
-
-      lint.linters_by_ft = {
-        haskell = { 'hlint', }
-      }
-
-      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        callback = function()
-          lint.try_lint()
-        end,
-      })
-    end
-  },
-
-  {
     'neovim/nvim-lspconfig',
     dependencies = {
       'folke/neodev.nvim',
@@ -292,99 +266,6 @@ return {
           }
         },
       }
-
-      -- See https://github.com/MrcJkb/haskell-tools.nvim#advanced-configuration
-      vim.g.haskell_tools = {
-        tools = {
-          codeLens = {
-            autoRefresh = false, -- Disable all code lens
-          },
-          hoogle = {
-            mode = 'telescope-web', -- auto, telescope-local, telescope-web, browser
-          },
-          hover = {
-            enable = false,
-            auto_focus = false,
-          },
-          definition = {
-            hoogle_signature_fallback = false,
-          },
-          tags = {
-            enable = vim.fn.executable('fast-tags') == 1,
-            package_events = { 'BufWritePost' },
-          },
-        },
-        hls = {
-          on_attach = function(client, bufnr, ht)
-            lsp_on_attach(client, bufnr)
-
-            vim.keymap.set('n', '<space>ma', vim.lsp.codelens.run,
-              { noremap = true, silent = true, desc = "Run code lens" })
-            vim.keymap.set('n', '<space>mH', ht.hoogle.hoogle_signature,
-              { noremap = true, silent = true, desc = "Hoogle under cursor" })
-            vim.keymap.set('n', '<leader>mc', ht.project.open_package_cabal,
-              { noremap = true, silent = true, desc = "Open .cabal" })
-            vim.keymap.set('n', '<leader>mC', ht.project.open_package_yaml,
-              { noremap = true, silent = true, desc = "Open stack.yaml" })
-            vim.keymap.set('n', '<leader>mt', function()
-              ht.repl.toggle(vim.api.nvim_buf_get_name(0))
-            end, { noremap = true, silent = true, desc = "Repl: buffer" })
-            vim.keymap.set('n', '<leader>mT', ht.repl.toggle,
-              { noremap = true, silent = true, desc = "Repl: project" })
-            vim.keymap.set('n', '<leader>mq', ht.repl.quit,
-              { noremap = true, silent = true, desc = "Repl: quit" })
-            vim.keymap.set('n', '<leader>mi', ht.repl.cword_info,
-              { noremap = true, silent = true, desc = "Repl: info (cword)" })
-            vim.keymap.set('n', '<leader>ml', function()
-              ht.repl.load_file(vim.api.nvim_buf_get_name(0))
-            end, { noremap = true, silent = true, desc = "Load" })
-          end,
-
-          default_settings = {
-            haskell = {
-              formattingProvider = 'ormolu',
-              cabalFormattingProvider = 'cabalfmt',
-              maxCompletions = 40,
-              -- typecheck the entire project on initial load.
-              checkProject = true,
-              checkParents = 'checkOnSave',
-              plugin = {
-                hlint = { -- hlint
-                  codeActionsOn = true,
-                  diagnosticsOn = true,
-                },
-                pragmas = { -- autocomplete pragmas
-                  codeActionsOn = true,
-                  completionOn = true,
-                },
-                class = { -- missing class methods
-                  codeLensOn = false,
-                },
-                importLens = { -- make import lists fully explicit
-                  codeLensOn = false,
-                },
-                refineImports = { -- refine imports
-                  codeLensOn = false,
-                },
-                tactics = { -- wingman
-                  codeLensOn = false,
-                },
-                moduleName = { -- fix module names
-                  globalOn = true,
-                },
-                eval = { -- evaluate code snippets
-                  globalOn = false,
-                },
-                ['ghcide-type-lenses'] = { -- show/add missing type signatures
-                  globalOn = false,
-                },
-              },
-            },
-          },
-        },
-      }
-
-      require('telescope').load_extension('ht')
 
       lsp_custom_settings.rust_analyzer = {
         ['rust-analyzer'] = {
@@ -529,53 +410,5 @@ return {
       --   end
       -- })
     end
-  },
-
-  {
-    'zbirenbaum/copilot.lua',
-    enabled = false,
-    opts = {
-      panel = {
-        enabled = false,
-        auto_refresh = false,
-        keymap = {
-          jump_prev = "[[",
-          jump_next = "]]",
-          accept = "<CR>",
-          refresh = "gr",
-          open = "<M-CR>"
-        },
-        layout = {
-          position = "bottom", -- | top | left | right
-          ratio = 0.4
-        },
-      },
-      suggestion = {
-        enabled = true,
-        auto_trigger = true,
-        debounce = 75,
-        keymap = {
-          accept = "<M-p>",
-          accept_word = false,
-          accept_line = false,
-          next = "<M-]>",
-          prev = "<M-[>",
-          dismiss = "<C-]>",
-        },
-      },
-      filetypes = {
-        yaml = false,
-        markdown = false,
-        help = false,
-        gitcommit = false,
-        gitrebase = false,
-        hgcommit = false,
-        svn = false,
-        cvs = false,
-        ["."] = false,
-      },
-      copilot_node_command = 'node', -- Node.js version must be > 18.x
-      server_opts_overrides = {},
-    },
   }
 }

@@ -1,8 +1,4 @@
 return {
-  'MrcJkb/telescope-manix',
-
-  'luc-tielen/telescope_hoogle',
-
   {
     'nvim-telescope/telescope-fzf-native.nvim',
     build = 'make' -- dependencies: gcc, make
@@ -11,15 +7,6 @@ return {
   {
     'nvim-telescope/telescope-smart-history.nvim',
     dependencies = { 'kkharji/sqlite.lua' }
-  },
-
-  {
-    'dhruvmanila/browser-bookmarks.nvim',
-    tag = 'v3.1.0',
-    dependencies = {
-      'kkharji/sqlite.lua',
-      'nvim-telescope/telescope.nvim',
-    }
   },
 
   -- TODO: hello
@@ -107,11 +94,8 @@ return {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.6',
     dependencies = {
-      'MrcJkb/telescope-manix',
-      'luc-tielen/telescope_hoogle',
       'nvim-telescope/telescope-fzf-native.nvim',
       'nvim-telescope/telescope-smart-history.nvim',
-      'dhruvmanila/browser-bookmarks.nvim',
       'folke/todo-comments.nvim',
       'nvim-lua/plenary.nvim',
     },
@@ -225,23 +209,13 @@ return {
             override_file_sorter = true,    -- override the file sorter
             case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
-          },
-          bookmarks = {
-            selected_browser = 'firefox',
-            profile_name = 'default-release',
-            url_open_command = 'xdg-open',
-          },
+          }
         },
       }
 
       -- Extensions
       telescope.load_extension('fzf')
       telescope.load_extension('smart_history')
-      telescope.load_extension('hoogle')
-      telescope.load_extension('grapple')
-
-      telescope.load_extension('bookmarks')
-      vim.keymap.set('n', '<leader>fb', '<cmd>Telescope bookmarks<cr>', { desc = 'Browser bookmarks' })
 
       -- Keymaps
       local builtins = require('telescope.builtin')
@@ -259,23 +233,6 @@ return {
 
       -- folke/todo-comments.nvim
       vim.keymap.set('n', '<leader>ft', "<cmd>TodoTelescope<cr>", { silent = true, noremap = true, desc = "TODOs" })
-
-      -- FIXME: doesn't load
-      local telescope_manix = require('telescope-manix')
-      telescope.load_extension('manix')
-      vim.keymap.set('n', '<leader>fn', telescope_manix.search,
-        { silent = true, noremap = true, desc = "Nix (manix)" })
-      vim.keymap.set('n', '<leader>fN', function()
-          telescope_manix.search {
-            manix_args = {}, -- for example: `{'--source', 'nixpkgs_doc', '--source', 'nixpkgs_comments'}`
-            cword = true
-          }
-        end,
-        { silent = true, noremap = true, desc = "Nix (manix)" }
-      )
-
-      vim.keymap.set('n', '<leader>mh', telescope.extensions.hoogle.hoogle,
-        { silent = true, noremap = true, desc = "Hoogle" })
     end
   },
 }

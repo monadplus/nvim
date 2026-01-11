@@ -21,7 +21,7 @@ return {
         keys = {
           {
             "<leader>tc",
-            "<cmd>TSContextToggle<cr>",
+            "<cmd>TSContext toggle<cr>",
             mode = { "n" },
             silent = true,
             noremap = true,

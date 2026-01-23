@@ -276,15 +276,23 @@ return {
             prefix = "crate",
           },
           checkOnSave = {
-            enable = true, -- Disable for performance boost
+            enable = false, -- Disable for performance boost
           },
           diagnostics = {
+            enable = true,
+            disabled = {
+              "unresolved-proc-macro",
+              "proc-macro-disabled",
+            },
             experimental = {
               enable = true
             },
           },
           procMacro = {
-            enable = true
+            enable = true,
+            ignored = {
+              ["async-trait"] = {"async-trait"},
+            }
           },
           cargo = {
             features = "all"

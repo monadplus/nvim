@@ -386,9 +386,13 @@ return {
         },
         filters = {
           dotfiles = false,
+          custom = { "^.git$" },
         },
         git = {
           ignore = false,
+        },
+        filesystem_watchers = {
+          enable = false,
         },
         -- disable_netrw = true,
         -- hijack_netrw = true,

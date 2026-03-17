@@ -92,7 +92,7 @@ return {
 
   {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.6',
+    tag = 'v0.2.1',
     dependencies = {
       'nvim-telescope/telescope-fzf-native.nvim',
       'nvim-telescope/telescope-smart-history.nvim',

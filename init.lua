@@ -98,3 +98,20 @@ autocmd('BufEnter', {
     opt.foldenable = true
   end
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = {
+    "bash",
+    "c",
+    "html",
+    "json",
+    "lua",
+    "markdown",
+    "nix",
+    "rust",
+    "sql",
+    "yaml",
+    "zig"
+  },
+  callback = function() vim.treesitter.start() end,
+})

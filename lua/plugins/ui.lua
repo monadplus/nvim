@@ -286,6 +286,7 @@ return {
 
   {
     'nvim-tree/nvim-tree.lua',
+    lazy = false,
     dependencies = {
       'nvim-tree/nvim-web-devicons',
     },
@@ -308,6 +309,35 @@ return {
       },
     },
     config = function()
+      -- Remove START
+      local Explorer = require('nvim-tree.explorer')
+      local original_reload_git = Explorer.reload_git
+
+      Explorer.reload_git = function(self)
+        if not (self and self.opts and self.opts.git and self.opts.git.enable) then
+          return
+        end
+
+        local ok, err = pcall(original_reload_git, self)
+        if ok then
+          return
+        end
+
+        if not tostring(err):match("attempt to index field 'git' %(a nil value%)") then
+          error(err)
+        end
+
+        local git = require('nvim-tree.git')
+        local view = require('nvim-tree.view')
+        local projects = git.reload_all_projects()
+
+        git.reload_node_status(self, projects)
+        if view.is_visible() then
+          self.renderer:draw()
+        end
+      end
+      -- Remove END
+
       local function on_attach(bufnr)
         local api = require('nvim-tree.api')
 

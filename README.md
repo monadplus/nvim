@@ -20,6 +20,8 @@ Finally, open neovim and let [lazy.nvim](https://github.com/folke/lazy.nvim) ins
 Don't worry, lazy.nvim will auto-install the first time you open neovim. 
 Once everything is installed, restart neovim and check all plugins are correctly installed `:Lazy health`.
 
+For treesitter to work you will need to install [tree-sitter-cli](https://crates.io/crates/tree-sitter-cli).
+
 ## Keybindings
 
 See [keybindings](./docs/keybindings.md).
@@ -42,7 +44,7 @@ Alternatively, you can configure the plugin [mason.nvim](https://github.com/will
 The following languages are configured out of the box. 
 You will only have to install their corresponding LSP server.
 
-- `Python`: [pyright](https://github.com/microsoft/pyright)
+- `Python`: [pyright](https://github.com/microsoft/pyright) (consider using `ruff`)
 - `Rust`: [rust-analyzer](https://github.com/rust-lang/rust-analyzer)
 - `Haskell`: [haskell-language-server](https://github.com/haskell/haskell-language-server)
 - `Nix`: [nil](https://github.com/oxalica/nil)
